@@ -1,0 +1,2 @@
+# Data Structures Practice - No external dependencies required for core exercises
+# Add any packages as needed for your practice problems
