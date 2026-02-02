@@ -1,0 +1,73 @@
+"""
+Next Smaller Element
+
+Difficulty: Medium
+Topics: Array, Stack, Monotonic Stack
+
+Problem:
+--------
+Given an array, for each element find the next smaller element to its right.
+The next smaller element of x is the first element smaller than x when
+traversing right. If no such element exists, return -1.
+
+Examples:
+---------
+Example 1:
+    Input: arr = [4, 2, 1, 5, 3]
+    Output: [2, 1, -1, 3, -1]
+    Explanation: 4→2, 2→1, 1→none, 5→3, 3→none
+
+Example 2:
+    Input: arr = [2, 1, 4, 3]
+    Output: [1, -1, 3, -1]
+    Explanation: 2→1, 1→none, 4→3, 3→none
+
+Constraints:
+------------
+- 1 <= arr.length <= 10^4
+- -10^9 <= arr[i] <= 10^9
+
+Approach: Monotonic Stack (Reversed Traversal)
+----------------------------------------------
+- Traverse array in reversed order (right to left)
+- Stack stores elements seen so far (to the right of current)
+- For each element: pop larger/equal values until we find a smaller one
+  or stack is empty → result is -1
+- At end: reverse result to match original order
+
+Time Complexity: O(n)
+    - Single pass, each element pushed and popped at most once
+
+Space Complexity: O(n)
+    - Stack + result list
+"""
+
+
+class Solution():
+    def nextSmallerElement(self, arr):
+        stack = []
+        result = []
+
+        for element in reversed(arr):
+            if not stack:
+                result.append(-1)
+
+            if stack and stack[-1] < element:
+                result.append(stack[-1])
+
+            if stack and stack[-1] >= element:
+                while stack and stack[-1] >= element:
+                    stack.pop()
+                if not stack:
+                    result.append(-1)
+                else:
+                    result.append(stack[-1])
+
+            stack.append(element)
+
+        return result[::-1]
+
+
+if __name__ == "__main__":
+    print(Solution().nextSmallerElement([4, 2, 1, 5, 3]))   # [2, 1, -1, 3, -1]
+    print(Solution().nextSmallerElement([2, 1, 4, 3]))      # [1, -1, 3, -1]
