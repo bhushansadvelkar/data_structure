@@ -1,3 +1,25 @@
+"""
+739. Daily Temperatures
+https://leetcode.com/problems/daily-temperatures/
+
+Problem:
+--------
+Given an array of daily temperatures, return an array such that result[i] is the
+number of days you have to wait after day i to get a warmer temperature. If no future day is warmer, use 0.
+
+Approach: How I solved it
+-------------------------
+- Monotonic stack (process from right to left): for each index i, pop from stack while top has value <= temperatures[i]; then the next warmer day is at stack top (or 0 if stack empty); push (temperatures[i], i) onto stack.
+- Each index pushed and popped at most once.
+
+Time Complexity: O(n)
+    - Each index pushed once and popped at most once.
+
+Space Complexity: O(n)
+    - Stack can hold up to n indices in the worst case.
+"""
+
+
 class Solution(object):
     def dailyTemperatures(self, temperatures):
         """

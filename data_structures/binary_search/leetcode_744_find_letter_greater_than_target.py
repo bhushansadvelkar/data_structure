@@ -1,3 +1,26 @@
+"""
+744. Find Smallest Letter Greater Than Target
+https://leetcode.com/problems/find-smallest-letter-greater-than-target/
+
+Problem:
+--------
+Sorted array of letters and a target. Return the smallest letter in the array
+that is strictly greater than target. If none exists, return the first letter (wrap-around).
+
+Approach: How I solved it
+-------------------------
+- Binary search: if letters[mid] > target, it's a candidate; search left for a smaller one (end = mid - 1).
+- If letters[mid] <= target, search right (start = mid + 1).
+- Use result to store best candidate; after loop return result or letters[0] if no candidate.
+
+Time Complexity: O(log n)
+    - Binary search halves the search space each step.
+
+Space Complexity: O(1)
+    - Only a few variables.
+"""
+
+
 class Solution(object):
     def nextGreatestLetter(self, letters, target):
         """

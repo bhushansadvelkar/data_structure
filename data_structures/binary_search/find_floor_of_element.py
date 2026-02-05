@@ -1,3 +1,26 @@
+"""
+Find Floor / Predecessor in Sorted Array (largest element strictly smaller than target)
+
+Problem:
+--------
+Sorted array and target. Return the largest element in the array that is strictly
+smaller than target. If none exists, return -1.
+
+Approach: How I solved it
+-------------------------
+- Binary search: if nums[mid] == target, search left only (end = mid - 1), don't store target.
+- If nums[mid] > target, search left (end = mid - 1).
+- If nums[mid] < target, it's a candidate floor; store it and search right (start = mid + 1) for a larger floor.
+- Return stored result (or -1 if never updated).
+
+Time Complexity: O(log n)
+    - Binary search.
+
+Space Complexity: O(1)
+    - Only a few variables.
+"""
+
+
 class Solution(object):
     def findFloorementinArray(self, nums, target):
         """
