@@ -66,6 +66,12 @@ class Solution(object):
         return max_profit
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(Solution().maxProfit([7, 1, 5, 3, 6, 4]))  # 5
-    print(Solution().maxProfit([7, 6, 4, 3, 1]))  # 0 
+    s = Solution()
+    run_test(s.maxProfit([7, 1, 5, 3, 6, 4]), 5, "[7,1,5,3,6,4]")
+    run_test(s.maxProfit([7, 6, 4, 3, 1]), 0, "[7,6,4,3,1]") 

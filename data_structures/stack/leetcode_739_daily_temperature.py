@@ -49,7 +49,13 @@ class Solution(object):
         return result[::-1]
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(Solution().dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]))  # Expected: [1, 1, 4, 2, 1, 1, 0, 0]
-    print(Solution().dailyTemperatures([30, 40, 50, 60]))  # Expected: [1, 1, 1, 0]
-    print(Solution().dailyTemperatures([30, 60, 90]))  # Expected: [1, 1, 0]
+    s = Solution()
+    run_test(s.dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]), [1, 1, 4, 2, 1, 1, 0, 0], "[73,74,75,71,69,72,76,73]")
+    run_test(s.dailyTemperatures([30, 40, 50, 60]), [1, 1, 1, 0], "[30,40,50,60]")
+    run_test(s.dailyTemperatures([30, 60, 90]), [1, 1, 0], "[30,60,90]")

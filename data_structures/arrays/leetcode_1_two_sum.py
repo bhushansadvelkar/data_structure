@@ -165,14 +165,27 @@ class SolutionHashMap:
         return None
 
 
-# --- Run both approaches ---
+def run_test(got, expected, name):
+    """Expected can be [0,1] or [1,0] - compare as set."""
+    exp_set = set(expected)
+    got_set = set(got) if got else None
+    status = "PASS" if got_set == exp_set else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    test_cases = [([2, 7, 11, 15], 9), ([3, 2, 4], 6), ([3, 3], 6)]
+    test_cases = [
+        ([2, 7, 11, 15], 9, [0, 1]),
+        ([3, 2, 4], 6, [1, 2]),
+        ([3, 3], 6, [0, 1]),
+    ]
 
     print("Approach 1 (Two-Pointer):")
-    for nums, target in test_cases:
-        print(f"  {nums}, target={target} -> {Solution().twoSum(nums, target)}")
+    s1 = Solution()
+    for nums, target, expected in test_cases:
+        run_test(s1.twoSum(nums, target), expected, f"nums={nums}, target={target}")
 
     print("\nApproach 2 (Hash Map):")
-    for nums, target in test_cases:
-        print(f"  {nums}, target={target} -> {SolutionHashMap().twoSum(nums, target)}")  
+    s2 = SolutionHashMap()
+    for nums, target, expected in test_cases:
+        run_test(s2.twoSum(nums, target), expected, f"nums={nums}, target={target}")  

@@ -91,18 +91,15 @@ class Solution(object):
         return [first, last]
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    # Target present multiple times
-    print(Solution().firstandLastOccuranceofNumber([5, 7, 7, 8, 8, 10], 8))  # Expected: [3, 4]
-
-    # Target present once
-    print(Solution().firstandLastOccuranceofNumber([1, 2, 3, 4, 5], 4))  # Expected: [3, 3]
-
-    # Target absent
-    print(Solution().firstandLastOccuranceofNumber([1, 2, 3, 4, 5], 6))  # Expected: [-1, -1]
-
-    # All elements same as target
-    print(Solution().firstandLastOccuranceofNumber([2, 2, 2, 2], 2))  # Expected: [0, 3]
-
-    # Single element array
-    print(Solution().firstandLastOccuranceofNumber([9], 9))  # Expected: [0, 0]
+    s = Solution()
+    run_test(s.firstandLastOccuranceofNumber([5, 7, 7, 8, 8, 10], 8), [3, 4], "nums=[5,7,7,8,8,10], target=8")
+    run_test(s.firstandLastOccuranceofNumber([1, 2, 3, 4, 5], 4), [3, 3], "nums=[1,2,3,4,5], target=4")
+    run_test(s.firstandLastOccuranceofNumber([1, 2, 3, 4, 5], 6), [-1, -1], "nums=[1,2,3,4,5], target=6")
+    run_test(s.firstandLastOccuranceofNumber([2, 2, 2, 2], 2), [0, 3], "nums=[2,2,2,2], target=2")
+    run_test(s.firstandLastOccuranceofNumber([9], 9), [0, 0], "nums=[9], target=9")

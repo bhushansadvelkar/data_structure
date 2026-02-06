@@ -75,19 +75,17 @@ class Solution(object):
         return l
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
     s = Solution()
-    # Target found
-    print(s.searchInsert([1, 3, 5, 6], 5))   # Expected: 2
-    # Insert in middle
-    print(s.searchInsert([1, 3, 5, 6], 2))   # Expected: 1
-    # Insert at end
-    print(s.searchInsert([1, 3, 5, 6], 7))   # Expected: 4
-    # Insert at start
-    print(s.searchInsert([1, 3, 5, 6], 0))   # Expected: 0
-    # Single element, found
-    print(s.searchInsert([1], 1))             # Expected: 0
-    # Single element, insert before
-    print(s.searchInsert([2], 1))            # Expected: 0
-    # Single element, insert after
-    print(s.searchInsert([2], 3))            # Expected: 1
+    run_test(s.searchInsert([1, 3, 5, 6], 5), 2, "[1,3,5,6], target=5")
+    run_test(s.searchInsert([1, 3, 5, 6], 2), 1, "[1,3,5,6], target=2")
+    run_test(s.searchInsert([1, 3, 5, 6], 7), 4, "[1,3,5,6], target=7")
+    run_test(s.searchInsert([1, 3, 5, 6], 0), 0, "[1,3,5,6], target=0")
+    run_test(s.searchInsert([1], 1), 0, "[1], target=1")
+    run_test(s.searchInsert([2], 1), 0, "[2], target=1")
+    run_test(s.searchInsert([2], 3), 1, "[2], target=3")

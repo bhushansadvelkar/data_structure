@@ -79,21 +79,16 @@ class Solution(object):
         return slot1 and slot2 and slot3
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    # Valid: up -> down -> up
-    print(Solution().isTrionic([1, 4, 2, 3]))  # Expected: True
-
-    # Valid: longer trionic
-    print(Solution().isTrionic([1, 3, 5, 4, 2, 6, 8]))  # Expected: True
-
-    # Invalid: only increasing (no decrease then increase)
-    print(Solution().isTrionic([1, 2, 3]))  # Expected: False
-
-    # Invalid: only decreasing
-    print(Solution().isTrionic([3, 2, 1]))  # Expected: False
-
-    # Invalid: adjacent equal elements
-    print(Solution().isTrionic([1, 2, 2, 3]))  # Expected: False
-
-    # Invalid: up then down but no second up
-    print(Solution().isTrionic([1, 3, 2]))  # Expected: False (need slot3)
+    s = Solution()
+    run_test(s.isTrionic([1, 4, 2, 3]), True, "[1,4,2,3]")
+    run_test(s.isTrionic([1, 3, 5, 4, 2, 6, 8]), True, "[1,3,5,4,2,6,8]")
+    run_test(s.isTrionic([1, 2, 3]), False, "[1,2,3]")
+    run_test(s.isTrionic([3, 2, 1]), False, "[3,2,1]")
+    run_test(s.isTrionic([1, 2, 2, 3]), False, "[1,2,2,3]")
+    run_test(s.isTrionic([1, 3, 2]), False, "[1,3,2]")

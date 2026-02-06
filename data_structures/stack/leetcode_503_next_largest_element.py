@@ -73,6 +73,12 @@ class Solution():
         return result[::-1][:len(arr)]
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(Solution().nextGreaterElements([1, 2, 1]))  # [2, -1, 2]
-    print(Solution().nextGreaterElements([1, 2, 3, 4, 3]))  # [2, 3, 4, -1, 4]
+    s = Solution()
+    run_test(s.nextGreaterElements([1, 2, 1]), [2, -1, 2], "[1,2,1]")
+    run_test(s.nextGreaterElements([1, 2, 3, 4, 3]), [2, 3, 4, -1, 4], "[1,2,3,4,3]")

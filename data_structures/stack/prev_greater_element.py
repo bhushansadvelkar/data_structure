@@ -96,6 +96,12 @@ class Solution():
         return result
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(Solution().prevGreaterElement([4, 2, 1, 5, 3]))  # [-1, 4, 2, -1, 5]
-    print(Solution().prevGreaterElement([5, 4, 3, 2, 1]))  # [-1, 5, 4, 3, 2]
+    s = Solution()
+    run_test(s.prevGreaterElement([4, 2, 1, 5, 3]), [-1, 4, 2, -1, 5], "[4,2,1,5,3]")
+    run_test(s.prevGreaterElement([5, 4, 3, 2, 1]), [-1, 5, 4, 3, 2], "[5,4,3,2,1]")

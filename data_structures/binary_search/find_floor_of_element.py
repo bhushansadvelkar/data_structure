@@ -45,12 +45,16 @@ class Solution(object):
 
         return result
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
     s = Solution()
-    # Largest element strictly smaller than target (predecessor)
-    print(s.findFloorementinArray([1, 2, 3, 4, 5], 3))   # Expected: 2 (largest < 3)
-    print(s.findFloorementinArray([1, 2, 3, 4, 5], 6))   # Expected: 5 (largest < 6)
-    print(s.findFloorementinArray([1, 2, 4, 5], 3))      # Expected: 2 (largest < 3)
-    print(s.findFloorementinArray([5, 10, 15], 2))       # Expected: -1 (no elem < 2)
-    print(s.findFloorementinArray([7], 7))               # Expected: -1 (no elem < 7)
-    print(s.findFloorementinArray([7], 5))               # Expected: -1 (no elem < 5)
+    run_test(s.findFloorementinArray([1, 2, 3, 4, 5], 3), 2, "[1,2,3,4,5], target=3")
+    run_test(s.findFloorementinArray([1, 2, 3, 4, 5], 6), 5, "[1,2,3,4,5], target=6")
+    run_test(s.findFloorementinArray([1, 2, 4, 5], 3), 2, "[1,2,4,5], target=3")
+    run_test(s.findFloorementinArray([5, 10, 15], 2), -1, "[5,10,15], target=2")
+    run_test(s.findFloorementinArray([7], 7), -1, "[7], target=7")
+    run_test(s.findFloorementinArray([7], 5), -1, "[7], target=5")

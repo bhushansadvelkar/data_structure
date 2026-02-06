@@ -84,16 +84,17 @@ def build_tree(values):
     return root
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
     s = Solution()
-    # Example 1: [3, 9, 20, null, null, 15, 7] -> 3
     root1 = build_tree([3, 9, 20, None, None, 15, 7])
-    print(s.maxDepth(root1))   # Expected: 3
-    # Example 2: [1, null, 2] -> 2
+    run_test(s.maxDepth(root1), 3, "[3,9,20,null,null,15,7]")
     root2 = build_tree([1, None, 2])
-    print(s.maxDepth(root2))   # Expected: 2
-    # Empty tree -> 0
-    print(s.maxDepth(None))   # Expected: 0
-    # Single node -> 1
+    run_test(s.maxDepth(root2), 2, "[1,null,2]")
+    run_test(s.maxDepth(None), 0, "empty tree")
     root3 = build_tree([1])
-    print(s.maxDepth(root3))   # Expected: 1
+    run_test(s.maxDepth(root3), 1, "[1]")

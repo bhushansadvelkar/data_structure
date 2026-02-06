@@ -38,8 +38,13 @@ def factorial(n):
     return n * factorial(n - 1)
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(factorial(5))   # Expected: 120
-    print(factorial(0))    # Expected: 1
-    print(factorial(1))    # Expected: 1
-    print(factorial(4))    # Expected: 24
+    run_test(factorial(5), 120, "factorial(5)")
+    run_test(factorial(0), 1, "factorial(0)")
+    run_test(factorial(1), 1, "factorial(1)")
+    run_test(factorial(4), 24, "factorial(4)")

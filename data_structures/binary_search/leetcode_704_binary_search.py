@@ -73,8 +73,14 @@ class Solution(object):
         return -1
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(Solution().search([-1, 0, 3, 5, 9, 12], 9))  # Expected: 4
-    print(Solution().search([-1, 0, 3, 5, 9, 12], 2))  # Expected: -1
-    print(Solution().search([5], 5))  # Expected: 0 
-    print(Solution().search([5], 3))  # Expected: -1
+    s = Solution()
+    run_test(s.search([-1, 0, 3, 5, 9, 12], 9), 4, "nums=[-1,0,3,5,9,12], target=9")
+    run_test(s.search([-1, 0, 3, 5, 9, 12], 2), -1, "nums=[-1,0,3,5,9,12], target=2")
+    run_test(s.search([5], 5), 0, "nums=[5], target=5")
+    run_test(s.search([5], 3), -1, "nums=[5], target=3")

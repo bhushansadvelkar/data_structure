@@ -71,15 +71,15 @@ class Solution(object):
         return nums[l]
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    solver = Solution()
-    # Standard rotation
-    print(solver.findMin([3, 4, 5, 1, 2]))        # Expected: 1
-    # Pivot between max and min
-    print(solver.findMin([4, 5, 6, 7, 0, 1, 2]))  # Expected: 0
-    # Not rotated
-    print(solver.findMin([11, 13, 15, 17]))       # Expected: 11
-    # Single element
-    print(solver.findMin([1]))                    # Expected: 1
-    # Two elements rotated
-    print(solver.findMin([2, 1]))                 # Expected: 1
+    s = Solution()
+    run_test(s.findMin([3, 4, 5, 1, 2]), 1, "[3,4,5,1,2]")
+    run_test(s.findMin([4, 5, 6, 7, 0, 1, 2]), 0, "[4,5,6,7,0,1,2]")
+    run_test(s.findMin([11, 13, 15, 17]), 11, "[11,13,15,17]")
+    run_test(s.findMin([1]), 1, "[1]")
+    run_test(s.findMin([2, 1]), 1, "[2,1]")

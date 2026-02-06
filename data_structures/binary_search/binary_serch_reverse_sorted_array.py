@@ -69,10 +69,16 @@ class Solution(object):
         return False
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(Solution().searchInReverseSorted([5, 4, 3, 2, 1], 3))  # Expected: True
-    print(Solution().searchInReverseSorted([5, 4, 3, 2, 1], 6))  # Expected: False
-    print(Solution().searchInReverseSorted([7], 7))  # Expected: True
-    print(Solution().searchInReverseSorted([7], 5))  # Expected: False
-    print(Solution().searchInReverseSorted([10, 5, 1], 10))  # Expected: True
-    print(Solution().searchInReverseSorted([10, 5, 1], 1))   # Expected: True
+    s = Solution()
+    run_test(s.searchInReverseSorted([5, 4, 3, 2, 1], 3), True, "[5,4,3,2,1], target=3")
+    run_test(s.searchInReverseSorted([5, 4, 3, 2, 1], 6), False, "[5,4,3,2,1], target=6")
+    run_test(s.searchInReverseSorted([7], 7), True, "[7], target=7")
+    run_test(s.searchInReverseSorted([7], 5), False, "[7], target=5")
+    run_test(s.searchInReverseSorted([10, 5, 1], 10), True, "[10,5,1], target=10")
+    run_test(s.searchInReverseSorted([10, 5, 1], 1), True, "[10,5,1], target=1")

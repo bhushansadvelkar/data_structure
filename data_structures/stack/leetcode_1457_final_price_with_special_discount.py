@@ -88,14 +88,13 @@ class Solution(object):
         return result[::-1]
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(Solution().finalPrices([8, 4, 6, 2, 3]))  # Expected: [4, 2, 4, 2, 3]
-
-    print(Solution().finalPrices([1, 2, 3, 4, 5]))  # Expected: [1, 2, 3, 4, 5]
-
-    # Example 3:
-    # Item 0: 10 - 1 = 9
-    # Item 1: 1 - 1 = 0
-    # Item 2: 1 (no discount)
-    # Item 3: 6 (no discount)
-    print(Solution().finalPrices([10, 1, 1, 6]))  # Expected: [9, 0, 1, 6]
+    s = Solution()
+    run_test(s.finalPrices([8, 4, 6, 2, 3]), [4, 2, 4, 2, 3], "[8,4,6,2,3]")
+    run_test(s.finalPrices([1, 2, 3, 4, 5]), [1, 2, 3, 4, 5], "[1,2,3,4,5]")
+    run_test(s.finalPrices([10, 1, 1, 6]), [9, 0, 1, 6], "[10,1,1,6]")

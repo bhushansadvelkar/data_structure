@@ -50,10 +50,15 @@ class Solution(object):
         return left
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    solver = Solution()
-    print(solver.countArrayRotation([15, 16, 17, 18, 9, 10, 11]))  # Expected: 4
-    print(solver.countArrayRotation([3, 4, 5, 1, 2]))              # Expected: 3
-    print(solver.countArrayRotation([1, 2, 3, 4, 5]))              # Expected: 0
-    print(solver.countArrayRotation([2, 3, 4, 5, 1]))              # Expected: 4
-    print(solver.countArrayRotation([7]))                          # Expected: 0
+    s = Solution()
+    run_test(s.countArrayRotation([15, 16, 17, 18, 9, 10, 11]), 4, "[15,16,17,18,9,10,11]")
+    run_test(s.countArrayRotation([3, 4, 5, 1, 2]), 3, "[3,4,5,1,2]")
+    run_test(s.countArrayRotation([1, 2, 3, 4, 5]), 0, "[1,2,3,4,5]")
+    run_test(s.countArrayRotation([2, 3, 4, 5, 1]), 4, "[2,3,4,5,1]")
+    run_test(s.countArrayRotation([7]), 0, "[7]")

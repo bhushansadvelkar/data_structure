@@ -74,18 +74,15 @@ class Solution(object):
         return pos if pos > neg else neg
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    # Example 1: 3 positive, 3 negative → max = 3
-    print(Solution().maximumCount([-2, -1, -1, 1, 2, 3]))  # Expected: 3
-
-    # Example 2: 2 positive, 3 negative → max = 3
-    print(Solution().maximumCount([-3, -2, -1, 0, 0, 1, 2]))  # Expected: 3
-
-    # Example 3: 4 positive, 0 negative → max = 4
-    print(Solution().maximumCount([5, 20, 66, 1314]))  # Expected: 4
-
-    # Edge case: all negative
-    print(Solution().maximumCount([-5, -3, -1]))  # Expected: 3
-
-    # Edge case: all zeros
-    print(Solution().maximumCount([0, 0, 0]))  # Expected: 0
+    s = Solution()
+    run_test(s.maximumCount([-2, -1, -1, 1, 2, 3]), 3, "[-2,-1,-1,1,2,3]")
+    run_test(s.maximumCount([-3, -2, -1, 0, 0, 1, 2]), 3, "[-3,-2,-1,0,0,1,2]")
+    run_test(s.maximumCount([5, 20, 66, 1314]), 4, "[5,20,66,1314]")
+    run_test(s.maximumCount([-5, -3, -1]), 3, "[-5,-3,-1]")
+    run_test(s.maximumCount([0, 0, 0]), 0, "[0,0,0]")

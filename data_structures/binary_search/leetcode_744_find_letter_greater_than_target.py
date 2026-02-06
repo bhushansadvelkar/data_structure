@@ -47,9 +47,14 @@ class Solution(object):
 
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got!r}, expected {expected!r}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
     s = Solution()
-    print(s.nextGreatestLetter(["c", "f", "j"], "a"))   # Expected: "c"
-    print(s.nextGreatestLetter(["c", "f", "j"], "c"))   # Expected: "f"
-    print(s.nextGreatestLetter(["x", "x", "y", "y"], "z"))  # Expected: "x"
-    print(s.nextGreatestLetter(["c", "f", "j"], "j"))   # Expected: "c"
+    run_test(s.nextGreatestLetter(["c", "f", "j"], "a"), "c", 'letters=["c","f","j"], target="a"')
+    run_test(s.nextGreatestLetter(["c", "f", "j"], "c"), "f", 'letters=["c","f","j"], target="c"')
+    run_test(s.nextGreatestLetter(["x", "x", "y", "y"], "z"), "x", 'letters=["x","x","y","y"], target="z"')
+    run_test(s.nextGreatestLetter(["c", "f", "j"], "j"), "c", 'letters=["c","f","j"], target="j"')

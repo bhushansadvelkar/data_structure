@@ -68,6 +68,12 @@ class Solution():
         return result[::-1]
 
 
+def run_test(got, expected, name):
+    status = "PASS" if got == expected else "FAIL"
+    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+
+
 if __name__ == "__main__":
-    print(Solution().nextSmallerElement([4, 2, 1, 5, 3]))   # [2, 1, -1, 3, -1]
-    print(Solution().nextSmallerElement([2, 1, 4, 3]))      # [1, -1, 3, -1]
+    s = Solution()
+    run_test(s.nextSmallerElement([4, 2, 1, 5, 3]), [2, 1, -1, 3, -1], "[4,2,1,5,3]")
+    run_test(s.nextSmallerElement([2, 1, 4, 3]), [1, -1, 3, -1], "[2,1,4,3]")

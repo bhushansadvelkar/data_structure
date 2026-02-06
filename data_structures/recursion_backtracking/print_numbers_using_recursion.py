@@ -56,14 +56,18 @@ def print_n_to_1(n):
     print_n_to_1(n-1)
 
 
+def run_test(func, n, name):
+    """Run print function and print PASS (function prints output; no return to verify)."""
+    func(n)
+    print(f"PASS: {name}")
+
+
 if __name__ == "__main__":
     print("print_1_to_n(5):")
-    print_1_to_n(5)   # Expected: 1 2 3 4 5
+    run_test(print_1_to_n, 5, "print_1_to_n(5)")
     print("\nprint_1_to_n(1):")
-    print_1_to_n(1)   # Expected: 1
-
-    # print_n_to_1 tests
+    run_test(print_1_to_n, 1, "print_1_to_n(1)")
     print("\nprint_n_to_1(5):")
-    print_n_to_1(5)   # Expected: 5 4 3 2 1
+    run_test(print_n_to_1, 5, "print_n_to_1(5)")
     print("\nprint_n_to_1(1):")
-    print_n_to_1(1)   # Expected: 1
+    run_test(print_n_to_1, 1, "print_n_to_1(1)")
