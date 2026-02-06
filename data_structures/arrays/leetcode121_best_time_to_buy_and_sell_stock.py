@@ -46,6 +46,8 @@ Space Complexity: O(1)
     - Only two variables: max_profit and best_buy
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def maxProfit(self, prices):
@@ -64,11 +66,6 @@ class Solution(object):
             best_buy = min(best_buy, prices[i])
 
         return max_profit
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

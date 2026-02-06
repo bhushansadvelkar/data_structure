@@ -24,6 +24,8 @@ Space Complexity: O(n)
     - Recursion call stack depth is n (worst case).
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 def print_1_to_n(n):
     """
@@ -56,18 +58,16 @@ def print_n_to_1(n):
     print_n_to_1(n-1)
 
 
-def run_test(func, n, name):
-    """Run print function and print PASS (function prints output; no return to verify)."""
-    func(n)
-    print(f"PASS: {name}")
-
-
 if __name__ == "__main__":
     print("print_1_to_n(5):")
-    run_test(print_1_to_n, 5, "print_1_to_n(5)")
+    print_1_to_n(5)
+    run_test(None, None, "print_1_to_n(5)", compare=False)
     print("\nprint_1_to_n(1):")
-    run_test(print_1_to_n, 1, "print_1_to_n(1)")
+    print_1_to_n(1)
+    run_test(None, None, "print_1_to_n(1)", compare=False)
     print("\nprint_n_to_1(5):")
-    run_test(print_n_to_1, 5, "print_n_to_1(5)")
+    print_n_to_1(5)
+    run_test(None, None, "print_n_to_1(5)", compare=False)
     print("\nprint_n_to_1(1):")
-    run_test(print_n_to_1, 1, "print_n_to_1(1)")
+    print_n_to_1(1)
+    run_test(None, None, "print_n_to_1(1)", compare=False)

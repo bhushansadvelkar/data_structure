@@ -50,6 +50,8 @@ Space Complexity: O(1)
     - Only a few variables (l, r, mid).
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def searchInsert(self, nums, target):
@@ -73,13 +75,6 @@ class Solution(object):
                 l = mid + 1
 
         return l
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
-
-
 if __name__ == "__main__":
     s = Solution()
     run_test(s.searchInsert([1, 3, 5, 6], 5), 2, "[1,3,5,6], target=5")

@@ -103,6 +103,8 @@ Comparison:
     Two-pointer: O(n log n) time, O(n) space
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def twoSum(self, nums, target):
@@ -165,12 +167,9 @@ class SolutionHashMap:
         return None
 
 
-def run_test(got, expected, name):
+def normalize(result):
     """Expected can be [0,1] or [1,0] - compare as set."""
-    exp_set = set(expected)
-    got_set = set(got) if got else None
-    status = "PASS" if got_set == exp_set else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
+    return set(result) if result is not None else None
 
 
 if __name__ == "__main__":
@@ -183,9 +182,9 @@ if __name__ == "__main__":
     print("Approach 1 (Two-Pointer):")
     s1 = Solution()
     for nums, target, expected in test_cases:
-        run_test(s1.twoSum(nums, target), expected, f"nums={nums}, target={target}")
+        run_test(s1.twoSum(nums, target), expected, f"nums={nums}, target={target}", normalize=normalize)
 
     print("\nApproach 2 (Hash Map):")
     s2 = SolutionHashMap()
     for nums, target, expected in test_cases:
-        run_test(s2.twoSum(nums, target), expected, f"nums={nums}, target={target}")  
+        run_test(s2.twoSum(nums, target), expected, f"nums={nums}, target={target}", normalize=normalize)

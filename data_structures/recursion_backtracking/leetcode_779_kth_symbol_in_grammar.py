@@ -54,6 +54,8 @@ Space Complexity: O(n)
     - Recursion call stack depth is n.
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def kthGrammar(self, n, k):
@@ -75,11 +77,6 @@ class Solution(object):
             return self.kthGrammar(n-1, k)
         else:
             return int(not(self.kthGrammar(n-1 , k - mid)))
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

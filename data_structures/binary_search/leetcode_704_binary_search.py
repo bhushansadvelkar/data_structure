@@ -49,6 +49,8 @@ Space Complexity: O(1)
     - Only using a few variables
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def search(self, nums, target):
@@ -71,13 +73,6 @@ class Solution(object):
                 start = mid + 1
 
         return -1
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
-
-
 if __name__ == "__main__":
     s = Solution()
     run_test(s.search([-1, 0, 3, 5, 9, 12], 9), 4, "nums=[-1,0,3,5,9,12], target=9")

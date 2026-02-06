@@ -20,6 +20,8 @@ Space Complexity: O(1)
     - Only a few variables.
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def nextGreatestLetter(self, letters, target):
@@ -44,13 +46,6 @@ class Solution(object):
                 start = mid + 1
 
         return result if result is not None else letters[0]
-
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got!r}, expected {expected!r}" if status == "FAIL" else ""))
-
 
 if __name__ == "__main__":
     s = Solution()

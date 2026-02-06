@@ -42,6 +42,8 @@ Space Complexity: O(n)
     - Recursion stack depth is n. Result list holds up to 2^n subsets.
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def subsetsWithDup(self, nums):
@@ -75,20 +77,19 @@ def normalize(result):
     return set(tuple(sorted(sub)) for sub in result)
 
 
-def run_test(s, nums, expected, name):
-    got = s.subsetsWithDup(nums)
-    if got is None:
-        print(f"FAIL: {name} | solution returned None (not implemented)")
-        return
-    exp_set = normalize(expected)
-    got_set = normalize(got)
-    status = "PASS" if exp_set == got_set else "FAIL"
-    print(f"{status}: {name}" + (f" | got {len(got)} subsets, expected {len(expected)}" if status == "FAIL" else ""))
-
-
 if __name__ == "__main__":
     s = Solution()
-    run_test(s, [1, 2, 2], [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]], "[1,2,2]")
-    run_test(s, [0], [[], [0]], "[0]")
-    run_test(s, [1, 2, 3], [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]], "[1,2,3]")
-    run_test(s, [4, 4, 4, 1, 4], [[], [1], [1, 4], [1, 4, 4], [1, 4, 4, 4], [1, 4, 4, 4, 4], [4], [4, 4], [4, 4, 4], [4, 4, 4, 4]], "[4,4,4,1,4]")
+    run_test(s.subsetsWithDup([1, 2, 2]), [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]], "[1,2,2]", normalize=normalize)
+    run_test(s.subsetsWithDup([0]), [[], [0]], "[0]", normalize=normalize)
+    run_test(
+        s.subsetsWithDup([1, 2, 3]),
+        [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]],
+        "[1,2,3]",
+        normalize=normalize,
+    )
+    run_test(
+        s.subsetsWithDup([4, 4, 4, 1, 4]),
+        [[], [1], [1, 4], [1, 4, 4], [1, 4, 4, 4], [1, 4, 4, 4, 4], [4], [4, 4], [4, 4, 4], [4, 4, 4, 4]],
+        "[4,4,4,1,4]",
+        normalize=normalize,
+    )

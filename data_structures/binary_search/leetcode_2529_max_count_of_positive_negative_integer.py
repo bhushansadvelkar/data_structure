@@ -48,6 +48,8 @@ Space Complexity: O(1)
     - Only using variables
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def maximumCount(self, nums):
@@ -72,11 +74,6 @@ class Solution(object):
         neg = left     
 
         return pos if pos > neg else neg
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

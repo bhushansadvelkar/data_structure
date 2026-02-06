@@ -19,6 +19,8 @@ Space Complexity: O(n)
     - Stack can hold up to n indices in the worst case.
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def dailyTemperatures(self, temperatures):
@@ -47,11 +49,6 @@ class Solution(object):
             stack.append([temperatures[i], i])
 
         return result[::-1]
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

@@ -45,6 +45,8 @@ Space Complexity: O(n)
     - Recursion stack depth is n (we recurse n levels: n → n-1 → ... → 1).
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 def tower_of_hanoi(n, source, aux, dest):
     """
@@ -65,16 +67,13 @@ def tower_of_hanoi(n, source, aux, dest):
     tower_of_hanoi(n - 1, aux, source, dest)   # move n-1 from aux to dest (using source)
 
 
-def run_test(n, name):
-    """Run tower_of_hanoi and print PASS (function prints moves; no return to verify)."""
-    tower_of_hanoi(n, "A", "B", "C")
-    print(f"PASS: {name} (n={n}, printed above)")
-
-
 if __name__ == "__main__":
     print("n=1:")
-    run_test(1, "n=1")
+    tower_of_hanoi(1, "A", "B", "C")
+    run_test(None, None, "n=1", compare=False, details="n=1, printed above")
     print("\nn=2:")
-    run_test(2, "n=2")
+    tower_of_hanoi(2, "A", "B", "C")
+    run_test(None, None, "n=2", compare=False, details="n=2, printed above")
     print("\nn=3:")
-    run_test(3, "n=3")
+    tower_of_hanoi(3, "A", "B", "C")
+    run_test(None, None, "n=3", compare=False, details="n=3, printed above")

@@ -50,6 +50,8 @@ Space Complexity: O(1)
     - Uses only a constant amount of extra memory.
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def findMin(self, nums):
@@ -69,11 +71,6 @@ class Solution(object):
                 r = mid
 
         return nums[l]
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

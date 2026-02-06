@@ -20,6 +20,8 @@ Space Complexity: O(1)
     - Only a few variables.
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def findFloorementinArray(self, nums, target):
@@ -44,10 +46,6 @@ class Solution(object):
                 start = mid + 1
 
         return result
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

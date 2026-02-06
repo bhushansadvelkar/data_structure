@@ -40,6 +40,8 @@ Space Complexity: O(h)
     - h = height of tree. Recursion call stack depth is at most h (O(n) worst case for skewed tree).
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 # Definition for a binary tree node.
 class TreeNode(object):
@@ -82,11 +84,6 @@ def build_tree(values):
             q.append(node.right)
         i += 1
     return root
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

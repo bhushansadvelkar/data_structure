@@ -70,6 +70,8 @@ Step 5: element=3
 Final: return [-1, 4, 2, -1, 5]
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution():
     def prevGreaterElement(self, arr):
@@ -94,11 +96,6 @@ class Solution():
             stack.append(element)
 
         return result
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

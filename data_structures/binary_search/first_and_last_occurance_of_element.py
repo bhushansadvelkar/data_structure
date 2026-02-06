@@ -44,6 +44,8 @@ Space Complexity: O(1)
     - Constant extra memory.
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def firstandLastOccuranceofNumber(self, nums, target):
@@ -89,11 +91,6 @@ class Solution(object):
             return [-1, -1]
 
         return [first, last]
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

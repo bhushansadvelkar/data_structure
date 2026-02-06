@@ -44,6 +44,8 @@ Time Complexity: O(log n)
 Space Complexity: O(1)
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 class Solution(object):
     def searchInReverseSorted(self, nums, target):
@@ -67,11 +69,6 @@ class Solution(object):
                 start = mid + 1
 
         return False
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":

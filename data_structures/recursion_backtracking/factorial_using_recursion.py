@@ -24,6 +24,8 @@ Space Complexity: O(n)
     - Recursion call stack depth is n.
 """
 
+from data_structures.utils.test_utils import run_test
+
 
 def factorial(n):
     """
@@ -36,11 +38,6 @@ def factorial(n):
         return 1
     
     return n * factorial(n - 1)
-
-
-def run_test(got, expected, name):
-    status = "PASS" if got == expected else "FAIL"
-    print(f"{status}: {name}" + (f" | got {got}, expected {expected}" if status == "FAIL" else ""))
 
 
 if __name__ == "__main__":
