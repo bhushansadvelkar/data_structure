@@ -40,6 +40,11 @@ Space Complexity: O(h)
     - h = height of tree. Recursion call stack depth is at most h (O(n) worst case for skewed tree).
 """
 
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
 from data_structures.utils.test_utils import run_test
 
 
