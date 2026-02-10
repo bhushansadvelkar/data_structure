@@ -23,6 +23,20 @@ Constraints:
 ------------
 - 1 <= k <= n <= 10^5
 - -10^4 <= arr[i] <= 10^4
+
+Approach:
+---------
+Use a min-heap of size k+1 over the first k+1 elements. The minimum in that
+window is the next output element. Repeatedly: pop the min into the output
+position, push the next element from the array (if any), then advance. This
+exploits the k-sorted property so the next minimum always lies in the current
+window.
+
+Time Complexity: O(n log k)
+    - n elements; each of n pops and at most n pushes, each O(log(k+1)).
+
+Space Complexity: O(k)
+    - Min-heap of size k+1.
 """
 
 import os

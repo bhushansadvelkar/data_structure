@@ -39,6 +39,19 @@ Follow-up:
 ----------
 - Could you solve the problem with O(1) memory complexity?
 - Could you solve the problem in O(n) time? (Advanced; see paper on selection in X+Y.)
+
+Approach:
+---------
+Flatten matrix to a list, then maintain a max-heap (min-heap of negatives) of
+size k. Push each value; when size > k, pop the largest. The root is the kth
+smallest.
+
+Time Complexity: O(n^2 log k)
+    - n^2 elements; each push/pop is O(log k); heap size at most k.
+
+Space Complexity: O(n^2 + k)
+    - Flattened list O(n^2); heap O(k). Note: problem asks for better than O(n^2)
+      memory; a heap-over-matrix approach can achieve O(k) extra space.
 """
 
 import os
