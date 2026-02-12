@@ -58,11 +58,13 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
+        if not nums or k <= 0 or k > len(nums):
+            return 0
         max_sum = sum(nums[:k])
         window_sum = max_sum
 
         for i in range(k, len(nums)):
-            window_sum = window_sum +  nums[i] - nums[i - k]
+            window_sum = window_sum + nums[i] - nums[i - k]
             max_sum = max(max_sum, window_sum)
 
         return max_sum
