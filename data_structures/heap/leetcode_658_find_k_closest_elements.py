@@ -56,6 +56,18 @@ import heapq
 
 class Solution:
     def findClosestElements(self, arr, k, x):
+        """
+        Return k closest integers to x, sorted ascending.
+
+        Code: Min-heap keyed by (distance to x, value). Heapify all, pop k
+        times, sort result for ascending order.
+
+        Time: O(n log n). Space: O(n).
+        :type arr: List[int]
+        :type k: int
+        :type x: int
+        :rtype: List[int]
+        """
         heap = [(abs(x - i), i) for i in arr]
         heapq.heapify(heap)
         res = []

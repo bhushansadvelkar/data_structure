@@ -55,6 +55,12 @@ from data_structures.utils.test_utils import run_test
 class Solution(object):
     def search(self, nums, target):
         """
+        Return index of target in sorted nums, or -1 if not found.
+
+        Code: Classic binary search: mid = (lo+hi)//2; if nums[mid]==target
+        return mid; else narrow to left or right half.
+
+        Time: O(log n). Space: O(1).
         :type nums: List[int]
         :type target: int
         :rtype: int

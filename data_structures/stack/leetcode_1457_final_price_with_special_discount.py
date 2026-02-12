@@ -64,6 +64,12 @@ from data_structures.utils.test_utils import run_test
 class Solution(object):
     def finalPrices(self, prices):
         """
+        Return final price per item: price - next smaller-or-equal to the right.
+
+        Code: Traverse right to left. Stack holds candidate discounts. Pop
+        larger values until smaller-or-equal or empty; discount = stack top.
+
+        Time: O(n). Space: O(n).
         :type prices: List[int]
         :rtype: List[int]
         """

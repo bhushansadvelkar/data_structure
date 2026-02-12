@@ -52,6 +52,16 @@ from data_structures.utils.test_utils import run_test
 
 class Solution():
     def nextGreaterElements(self, arr):
+        """
+        For each element, return next greater (circular). -1 if none.
+
+        Code: Double array for circular; traverse reversed. Stack holds values.
+        Pop smaller until greater found or empty; push current.
+
+        Time: O(n). Space: O(n).
+        :type arr: List[int]
+        :rtype: List[int]
+        """
         stack = []
         result = []
 

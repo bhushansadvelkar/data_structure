@@ -25,11 +25,18 @@ from data_structures.utils.test_utils import run_test
 class Solution(object):
     def dailyTemperatures(self, temperatures):
         """
+        For each day i, return how many days until a warmer day (0 if none).
+
+        Code: Monotonic stack (reversed order). Stack holds (value, index).
+        For each i: pop while top <= temperatures[i]; next warmer = stack top
+        (or 0); push (temperatures[i], i). Reverse result at end.
+
+        Time: O(n). Space: O(n).
         :type temperatures: List[int]
         :rtype: List[int]
         """
         result = []
-        stack = []
+        stack = []  # (temperature, index)
 
         for i in reversed(range(len(temperatures))):
             if not stack:

@@ -60,8 +60,12 @@ from data_structures.utils.test_utils import run_test
 class Solution(object):
     def isBalanced(self, num):
         """
-        Return True if num is balanced, else False.
+        Return True if sum of digits at even indices == sum at odd indices.
 
+        Code: Two running sums: even_sum from indices 0,2,4,... and odd_sum
+        from 1,3,5,...; compare at end.
+
+        Time: O(n). Space: O(1).
         :type num: str
         :rtype: bool
         """

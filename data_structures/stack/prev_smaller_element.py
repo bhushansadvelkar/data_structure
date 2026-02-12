@@ -47,6 +47,16 @@ from data_structures.utils.test_utils import run_test
 
 class Solution():
     def prevSmallerElement(self, arr):
+        """
+        For each element, return previous smaller to the left; -1 if none.
+
+        Code: Traverse left to right. Stack holds values seen. Pop while
+        stack top >= current; result is stack top or -1; push current.
+
+        Time: O(n). Space: O(n).
+        :type arr: List[int]
+        :rtype: List[int]
+        """
         stack = []
         result = []
 

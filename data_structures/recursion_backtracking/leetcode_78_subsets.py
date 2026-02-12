@@ -31,10 +31,14 @@ Constraints:
 
 Approach:
 ---------
-(Backtracking: for each index, include or exclude the element. Or cascading.)
+Backtracking: for each element, two choices — include or exclude. Recurse on
+rest; when input is empty, add current subset to result.
 
-Time Complexity:
-Space Complexity:
+Time Complexity: O(n * 2^n)
+    - 2^n subsets, each of size up to n to copy.
+
+Space Complexity: O(n)
+    - Recursion depth and current path O(n). Output is O(2^n * n) excluded.
 """
 
 from data_structures.utils.test_utils import run_test
@@ -45,6 +49,10 @@ class Solution(object):
         """
         Return all possible subsets (power set).
 
+        Code: Backtrack: include or exclude first element; recurse on rest;
+        base case: add current subset to result.
+
+        Time: O(n * 2^n). Space: O(n) recursion.
         :type nums: List[int]
         :rtype: List[List[int]]
         """

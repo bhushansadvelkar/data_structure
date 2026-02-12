@@ -52,6 +52,12 @@ from data_structures.utils.test_utils import run_test
 class Solution(object):
     def maxProfit(self, prices):
         """
+        Return maximum profit from one buy and one sell (buy before sell).
+
+        Code: Track minimum price seen (best_buy). For each day, profit if
+        sell today = prices[i] - best_buy; take max over all.
+
+        Time: O(n). Space: O(1).
         :type prices: List[int]
         :rtype: int
         """

@@ -30,17 +30,13 @@ Constraints:
 - 1 <= k <= n <= 10^5
 - -10^4 <= nums[i] <= 10^4
 
-Approach:
----------
-Sliding window of length k: compute sum of first k elements, then slide by
-one step at a time (add next element, subtract element leaving the window).
-Track the maximum sum; return max_sum / k.
+Approach 1: Loop over each window, sum window, take max average.
+    Time O(n*k), Space O(n) for list of averages.
 
-Time Complexity: O(n)
-    - Single pass; each window update is O(1).
-
-Space Complexity: O(1)
-    - Only a few variables for current sum and max sum.
+Approach 2: Sliding window of length k: compute sum of first k elements, then
+slide by one step (add next element, subtract element leaving the window).
+Track the maximum sum; return max_sum / float(k).
+    Time O(n), Space O(1).
 """
 
 import os
@@ -56,6 +52,10 @@ class Solution(object):
         """
         Return the maximum average of any contiguous subarray of length k.
 
+        Code: For each start i, window nums[i:i+k]; compute sum and average;
+        take max over all windows.
+
+        Time: O(n*k). Space: O(n) for list of averages.
         :type nums: List[int]
         :type k: int
         :rtype: float
@@ -68,16 +68,61 @@ class Solution(object):
 
         return max(sum_array)
 
+    def findMaxAverage2(self, nums, k):
+        """
+        Approach 2: Sliding window. Return the maximum average of length k.
+
+        Code: First window sum = sum(nums[:k]). Slide: add nums[i], subtract
+        nums[i-k]; update max_avg. Return max_avg.
+
+        Time: O(n). Space: O(1).
+        :type nums: List[int]
+        :type k: int
+        :rtype: float
+        """
+        if not nums or k <= 0 or k > len(nums):
+            return 0.0
+        window_sum = sum(nums[:k])
+        max_avg = window_sum / float(k)
+
+        for i in range(k, len(nums)):
+            window_sum = window_sum + nums[i] - nums[i - k]
+            max_avg = max(max_avg, window_sum / float(k))
+
+        return max_avg
+
 
 if __name__ == "__main__":
     sol = Solution()
+    # Approach 1 tests
     run_test(
         sol.findMaxAverage([1, 12, -5, -6, 50, 3], 4),
         12.75,
-        "nums=[1,12,-5,-6,50,3], k=4",
+        "Approach 1: nums=[1,12,-5,-6,50,3], k=4",
     )
     run_test(
         sol.findMaxAverage([5], 1),
         5.0,
-        "nums=[5], k=1",
+        "Approach 1: nums=[5], k=1",
+    )
+    # Approach 2 tests
+    run_test(
+        sol.findMaxAverage2([1, 12, -5, -6, 50, 3], 4),
+        12.75,
+        "Approach 2: nums=[1,12,-5,-6,50,3], k=4",
+    )
+    run_test(
+        sol.findMaxAverage2([5], 1),
+        5.0,
+        "Approach 2: nums=[5], k=1",
+    )
+    run_test(
+        sol.findMaxAverage2([0, 1, 1, 3, 3], 4),
+        2.0,
+        "Approach 2: nums=[0,1,1,3,3], k=4",
+    )
+    run_test(
+        sol.findMaxAverage2([-1, -2, -3, -4, -5], 3),
+        -2.0,
+        "Approach 2: nums=[-1,-2,-3,-4,-5], k=3",
     )

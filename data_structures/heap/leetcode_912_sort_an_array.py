@@ -61,9 +61,11 @@ class Solution(object):
         """
         Return the array sorted in ascending order (heap sort).
 
+        Code: Heapify nums into a min-heap; repeatedly heappop into result.
+
+        Time: O(n log n). Space: O(n) for result.
         :type nums: List[int]
         :rtype: List[int]
-        Time: O(n log n). Space: O(n) for result.
         """
         heapq.heapify(nums)
         result = []
