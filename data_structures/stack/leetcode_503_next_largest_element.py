@@ -45,6 +45,21 @@ Time Complexity: O(n)
 
 Space Complexity: O(n)
     - Stack + result list
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Double array for circular] --> B[Traverse reversed arr+arr]
+    B --> C{Stack empty?}
+    C -->|Yes| D[result = -1]
+    C -->|No| E{Stack top > current?}
+    E -->|Yes| F[result = stack top]
+    E -->|No| G[Pop until greater or empty]
+    G --> C
+    D --> H[Push current]
+    F --> H
+```
 """
 
 from data_structures.utils.test_utils import run_test

@@ -42,6 +42,20 @@ return list of groups.
 
 Time Complexity: O(n * k log k) with sort key; O(n * k) with count-tuple key.
 Space Complexity: O(n * k) for output.
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[For each string s] --> B[key = tuple sorted s]
+    B --> C{key in groups?}
+    C -->|No| D[groups key = list]
+    C -->|Yes| E[groups key append s]
+    D --> E
+    E --> F{More strings?}
+    F -->|Yes| A
+    F -->|No| G[Return list groups values]
+```
 """
 
 import os

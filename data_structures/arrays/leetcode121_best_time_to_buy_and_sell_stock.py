@@ -44,6 +44,18 @@ Time Complexity: O(n)
 
 Space Complexity: O(1)
     - Only two variables: max_profit and best_buy
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Track best_buy = min so far] --> B[profit = prices i - best_buy]
+    B --> C[max_profit = max max_profit profit]
+    C --> D[best_buy = min best_buy prices i]
+    D --> E{More days?}
+    E -->|Yes| A
+    E -->|No| F[Return max_profit]
+```
 """
 
 from data_structures.utils.test_utils import run_test

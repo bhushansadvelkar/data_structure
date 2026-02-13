@@ -40,6 +40,15 @@ Time Complexity: O(n + u log u)
 
 Space Complexity: O(u)
     - Storing unique keys and heap of size u. In worst case u = O(n).
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Count frequency of each element] --> B[Build min-heap keyed by -count]
+    B --> C[Pop k times]
+    C --> D[Return k most frequent]
+```
 """
 
 import os

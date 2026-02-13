@@ -43,6 +43,20 @@ char leaving, increment for char entering; update match state.
 
 Time Complexity: O(n)
 Space Complexity: O(1) or O(26) for frequency arrays
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Build freq count of p] --> B[Window of len p in s]
+    B --> C{Window freq matches p?}
+    C -->|Yes| D[Add start index to result]
+    C -->|No| E[Slide: dec leaving char, inc entering char]
+    D --> E
+    E --> F{More windows?}
+    F -->|Yes| C
+    F -->|No| G[Return result]
+```
 """
 
 import os

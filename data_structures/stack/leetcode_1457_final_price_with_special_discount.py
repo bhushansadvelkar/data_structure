@@ -56,6 +56,20 @@ Time Complexity: O(n)
 
 Space Complexity: O(n)
     - Stack + result list
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Traverse right to left] --> B{Stack empty?}
+    B -->|Yes| C[discount = 0]
+    B -->|No| D{Stack top <= current?}
+    D -->|Yes| E[discount = current - stack top]
+    D -->|No| F[Pop until smaller/equal or empty]
+    F --> B
+    C --> G[Push current]
+    E --> G
+```
 """
 
 from data_structures.utils.test_utils import run_test

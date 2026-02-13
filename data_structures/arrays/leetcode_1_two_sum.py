@@ -101,6 +101,17 @@ Space Complexity: O(n)
 Comparison:
     Hash map: O(n) time, O(n) space  ← optimal for time
     Two-pointer: O(n log n) time, O(n) space
+
+Approach Diagram - Hash Map (Mermaid):
+--------------------------------------
+```mermaid
+flowchart TD
+    A[For each num at index i] --> B[complement = target - num]
+    B --> C{complement in seen?}
+    C -->|Yes| D[Return seen[complement], i]
+    C -->|No| E[seen[num] = i]
+    E --> F[Next element]
+```
 """
 
 from data_structures.utils.test_utils import run_test

@@ -41,6 +41,22 @@ Time Complexity: O(n)
     - Sliding window (Approach 2): single pass; O(n*k) for Approach 1.
 Space Complexity: O(1)
     - Sliding window uses only a few variables; O(n) for Approach 1.
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Compute sum of first k elements] --> B[Track as max_sum]
+    B --> C[i = k to n-1]
+    C --> D[window_sum += nums[i] - nums[i-k]]
+    D --> E{window_sum > max_sum?}
+    E -->|Yes| F[max_sum = window_sum]
+    E -->|No| G[Continue]
+    F --> G
+    G --> H{More elements?}
+    H -->|Yes| C
+    H -->|No| I[Return max_sum / k]
+```
 """
 
 import os

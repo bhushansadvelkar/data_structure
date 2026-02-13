@@ -37,6 +37,19 @@ Time Complexity: O(n)
 
 Space Complexity: O(1)
     - In-place; only a few pointers.
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[curr = head] --> B{curr.next and curr.val == curr.next.val?}
+    B -->|Yes| C[curr.next = curr.next.next skip]
+    B -->|No| D[curr = curr.next]
+    C --> B
+    D --> E{curr?}
+    E -->|Yes| B
+    E -->|No| F[Return head]
+```
 """
 
 import os

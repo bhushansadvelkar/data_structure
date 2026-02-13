@@ -48,6 +48,18 @@ Time Complexity: O(log n)
 
 Space Complexity: O(1)
     - Uses only a constant amount of extra memory.
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[nums[mid] > nums[r]?] -->|Yes: min on right| B[l = mid + 1]
+    A -->|No: min at mid or left| C[r = mid]
+    B --> D{l < r?}
+    C --> D
+    D -->|Yes| A
+    D -->|No| E[Return nums[l]]
+```
 """
 
 from data_structures.utils.test_utils import run_test

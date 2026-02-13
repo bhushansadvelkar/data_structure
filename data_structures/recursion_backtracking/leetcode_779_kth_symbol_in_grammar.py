@@ -52,6 +52,16 @@ Time Complexity: O(n)
 
 Space Complexity: O(n)
     - Recursion call stack depth is n.
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Base: n=1 k=1 return 0] --> B[mid = 2 n-1]
+    B --> C{k <= mid?}
+    C -->|Yes| D[kthGrammar n-1 k]
+    C -->|No| E[NOT kthGrammar n-1 k-mid]
+```
 """
 
 from data_structures.utils.test_utils import run_test

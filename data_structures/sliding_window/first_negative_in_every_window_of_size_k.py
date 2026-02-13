@@ -41,6 +41,19 @@ its index. Append front's value (or 0) to result for each window.
 
 Time Complexity: O(n)
 Space Complexity: O(k)
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Deque stores indices of negatives] --> B[Front = first negative in window]
+    B --> C[For each i: if arr[i]<0 append i]
+    C --> D[Pop front if index outside window]
+    D --> E{i >= k-1?}
+    E -->|Yes| F[Append arr[front] or 0 to result]
+    E -->|No| G[Continue]
+    F --> G
+```
 """
 
 import os

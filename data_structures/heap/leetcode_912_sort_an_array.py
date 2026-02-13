@@ -44,6 +44,15 @@ Time Complexity: O(n log n)
 Space Complexity: O(n)
     - Result list holds n elements. Heap reuses the input array (in-place
       heapify and pop), so extra space beyond the output is O(1).
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Heapify nums into min-heap] --> B[n times: pop min]
+    B --> C[Append to result]
+    C --> D[Return sorted result]
+```
 """
 
 import os

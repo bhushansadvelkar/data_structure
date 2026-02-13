@@ -18,6 +18,18 @@ Time Complexity: O(log n)
 
 Space Complexity: O(1)
     - Only a few variables.
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[nums[mid] == target?] -->|Yes| B[end = mid - 1]
+    A -->|No| C{nums[mid] > target?}
+    C -->|Yes| B
+    C -->|No| D[result = nums[mid], start = mid + 1]
+    B --> E{start <= end?}
+    D --> E
+```
 """
 
 from data_structures.utils.test_utils import run_test

@@ -22,6 +22,18 @@ Time Complexity: O(n)
 
 Space Complexity: O(n)
     - Recursion call stack depth is n (worst case).
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart LR
+    subgraph "print_1_to_n"
+        A1[Recurse n-1] --> A2[Print n]
+    end
+    subgraph "print_n_to_1"
+        B1[Print n] --> B2[Recurse n-1]
+    end
+```
 """
 
 from data_structures.utils.test_utils import run_test

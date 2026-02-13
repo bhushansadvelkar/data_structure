@@ -39,6 +39,16 @@ Time Complexity: O(n * 2^n)
 
 Space Complexity: O(n)
     - Recursion depth and current path O(n). Output is O(2^n * n) excluded.
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[dfs idx path] --> B{idx == n?}
+    B -->|Yes| C[Add path to result]
+    B -->|No| D[Exclude: dfs idx+1 path]
+    D --> E[Include: dfs idx+1 path + nums idx]
+```
 """
 
 from data_structures.utils.test_utils import run_test

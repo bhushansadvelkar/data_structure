@@ -42,6 +42,19 @@ Time Complexity: O(n! × n)
 Space Complexity: O(n)
     - Recursion depth and current path size O(n). Output is O(n! × n) but not
       counted as extra space per usual convention.
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[backtrack path] --> B{len path == n?}
+    B -->|Yes| C[Add path to result]
+    B -->|No| D[For each unused num]
+    D --> E[Add num mark used]
+    E --> F[backtrack path]
+    F --> G[Remove num unmark]
+    G --> D
+```
 """
 
 from data_structures.utils.test_utils import run_test

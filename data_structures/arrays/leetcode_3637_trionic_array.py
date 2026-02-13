@@ -51,6 +51,22 @@ Time Complexity: O(n)
 
 Space Complexity: O(1)
     - Only three boolean variables
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Single pass] --> B{nums i == nums i+1?}
+    B -->|Yes| C[Return False]
+    B -->|No| D{nums i < nums i+1?}
+    D -->|Yes| E[slot1 or slot3]
+    D -->|No| F[slot2]
+    E --> G{slot1 slot2 slot3 all true?}
+    F --> G
+    G -->|Yes| H[Return True]
+    G -->|No| I{More pairs?}
+    I -->|Yes| A
+```
 """
 
 from data_structures.utils.test_utils import run_test

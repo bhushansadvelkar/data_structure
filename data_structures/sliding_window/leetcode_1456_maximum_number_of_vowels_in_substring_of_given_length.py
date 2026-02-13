@@ -50,6 +50,20 @@ Time Complexity: O(n)
 
 Space Complexity: O(1)
     - Only a fixed-size set for vowels and a few variables (count, max_count).
+
+Approach Diagram (Mermaid):
+--------------------------
+```mermaid
+flowchart TD
+    A[Count vowels in first window s[0:k]] --> B[max_count = count]
+    B --> C[For i=k to n-1]
+    C --> D[s[i] vowel? add 1 to count]
+    D --> E[s[i-k] vowel? subtract 1]
+    E --> F[max_count = max(max_count, count)]
+    F --> G{More?}
+    G -->|Yes| C
+    G -->|No| H[Return max_count]
+```
 """
 
 import os
