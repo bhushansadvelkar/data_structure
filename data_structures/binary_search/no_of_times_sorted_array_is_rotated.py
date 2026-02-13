@@ -11,6 +11,8 @@ Example:
 --------
 nums = [15, 16, 17, 18, 9, 10, 11] -> Rotated 4 times.
 
+Approach: How I solved it
+-------------------------
 Use binary search to find the index of the minimum element:
 - If the leftmost element is less than or equal to the rightmost element,
   the array is already sorted: return the left index (rotation count).

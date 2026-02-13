@@ -2,6 +2,12 @@
 
 A Python package for practicing data structures and algorithms. Each topic is organized into its own subpackage for clear separation and easy navigation.
 
+## Solution Diagrams
+
+**[View pictorial representations of solution approaches →](docs/APPROACH_DIAGRAMS.md)**
+
+Flowcharts and diagrams showing how each problem was solved. Renders on GitHub.
+
 ## Project Structure
 
 ```

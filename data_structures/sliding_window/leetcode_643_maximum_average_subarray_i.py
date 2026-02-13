@@ -30,13 +30,17 @@ Constraints:
 - 1 <= k <= n <= 10^5
 - -10^4 <= nums[i] <= 10^4
 
+Approach: How I solved it
+-------------------------
 Approach 1: Loop over each window, sum window, take max average.
-    Time O(n*k), Space O(n) for list of averages.
+Approach 2 (preferred): Sliding window of length k: compute sum of first k
+elements, then slide by one step (add next element, subtract element leaving
+the window). Track the maximum sum; return max_sum / float(k).
 
-Approach 2: Sliding window of length k: compute sum of first k elements, then
-slide by one step (add next element, subtract element leaving the window).
-Track the maximum sum; return max_sum / float(k).
-    Time O(n), Space O(1).
+Time Complexity: O(n)
+    - Sliding window (Approach 2): single pass; O(n*k) for Approach 1.
+Space Complexity: O(1)
+    - Sliding window uses only a few variables; O(n) for Approach 1.
 """
 
 import os
