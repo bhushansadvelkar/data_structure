@@ -17,20 +17,6 @@ Time Complexity: O(n)
 
 Space Complexity: O(n)
     - Stack can hold up to n indices in the worst case.
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[Traverse right to left] --> B{Stack empty?}
-    B -->|Yes| C[result = 0]
-    B -->|No| D{Stack top > current?}
-    D -->|Yes| E[result = stack_top_idx - i]
-    D -->|No| F[Pop until greater or empty]
-    F --> B
-    C --> G[Push current to stack]
-    E --> G
-```
 """
 
 from data_structures.utils.test_utils import run_test

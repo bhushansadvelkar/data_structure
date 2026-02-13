@@ -37,17 +37,6 @@ Time Complexity: O(n log k)
 
 Space Complexity: O(k)
     - Min-heap of size k+1.
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[Min-heap of first k+1 elements] --> B[Pop min to output position]
-    B --> C[Push next element from array]
-    C --> D{More elements?}
-    D -->|Yes| B
-    D -->|No| E[Pop remaining heap to output]
-```
 """
 
 import os

@@ -52,21 +52,6 @@ Time Complexity: O(n^2 log k)
 Space Complexity: O(n^2 + k)
     - Flattened list O(n^2); heap O(k). Note: problem asks for better than O(n^2)
       memory; a heap-over-matrix approach can achieve O(k) extra space.
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[Flatten matrix to list] --> B[Max-heap of size k]
-    B --> C[Push each value]
-    C --> D{heap size > k?}
-    D -->|Yes| E[Pop largest]
-    D -->|No| F[Continue]
-    E --> F
-    F --> G{More elements?}
-    G -->|Yes| C
-    G -->|No| H[Return -heap[0]]
-```
 """
 
 import os

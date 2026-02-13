@@ -40,21 +40,6 @@ decrement. Majority always wins, so final candidate is the answer.
 
 Time Complexity: O(n)
 Space Complexity: O(1)
-
-Approach Diagram - Boyer-Moore (Mermaid):
------------------------------------------
-```mermaid
-flowchart TD
-    A{count == 0?} -->|Yes| B[candidate = current]
-    A -->|No| C{current == candidate?}
-    C -->|Yes| D[count++]
-    C -->|No| E[count--]
-    B --> F{More elements?}
-    D --> F
-    E --> F
-    F -->|Yes| A
-    F -->|No| G[Return candidate]
-```
 """
 
 import os

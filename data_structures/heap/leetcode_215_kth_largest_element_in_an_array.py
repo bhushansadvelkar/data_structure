@@ -52,19 +52,6 @@ Time Complexity: O(n log k)
 
 Space Complexity: O(k)
     - Heap holds at most k elements.
-
-Approach Diagram - Min-heap (Mermaid):
---------------------------------------
-```mermaid
-flowchart TD
-    A[Push num to min-heap] --> B{heap size > k?}
-    B -->|Yes| C[Pop smallest]
-    B -->|No| D[Continue]
-    C --> D
-    D --> E{More elements?}
-    E -->|Yes| A
-    E -->|No| F[Return heap[0]]
-```
 """
 
 import os

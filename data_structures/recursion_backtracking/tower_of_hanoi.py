@@ -43,16 +43,6 @@ Time Complexity: O(2^n)
 
 Space Complexity: O(n)
     - Recursion stack depth is n (we recurse n levels: n → n-1 → ... → 1).
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A{n == 1?} -->|Yes| B[Move disk 1 src to dest]
-    A -->|No| C[Move n-1 src to aux]
-    C --> D[Move disk n src to dest]
-    D --> E[Move n-1 aux to dest]
-```
 """
 
 from data_structures.utils.test_utils import run_test

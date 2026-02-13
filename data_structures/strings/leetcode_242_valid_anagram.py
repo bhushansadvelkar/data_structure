@@ -40,20 +40,6 @@ Option 2: Sort both strings and compare (O(n log n) time).
 
 Time Complexity: O(n)
 Space Complexity: O(1) or O(26) for count array
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[Count char freq in s] --> B[For each char in t decrement]
-    B --> C{count < 0?}
-    C -->|Yes| D[Return False]
-    C -->|No| E{More chars?}
-    E -->|Yes| B
-    E -->|No| F{All counts 0?}
-    F -->|Yes| G[Return True]
-    F -->|No| D
-```
 """
 
 import os

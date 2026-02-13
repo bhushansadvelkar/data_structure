@@ -40,17 +40,6 @@ Time Complexity: O(2^n * n log n)
 
 Space Complexity: O(n)
     - Recursion stack depth is n. Result list holds up to 2^n subsets.
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[Include or exclude each element] --> B[Recurse on rest]
-    B --> C{input empty?}
-    C -->|Yes| D[Add subset to result]
-    C -->|No| A
-    D --> E[Deduplicate via set of sorted tuples]
-```
 """
 
 from data_structures.utils.test_utils import run_test

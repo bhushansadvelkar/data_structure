@@ -42,16 +42,6 @@ Time Complexity: O(log n)
 
 Space Complexity: O(1)
     - Constant extra memory.
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[First occurrence: match -> end = mid-1] --> B[Store first]
-    B --> C[Last occurrence: match -> start = mid+1]
-    C --> D[Store last]
-    D --> E[Return first, last]
-```
 """
 
 from data_structures.utils.test_utils import run_test

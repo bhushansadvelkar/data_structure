@@ -49,23 +49,6 @@ Time Complexity: O(n)
 
 Space Complexity: O(n)
     - Stack can hold up to n/2 opening brackets in the worst case.
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[For each char] --> B{Opening bracket?}
-    B -->|Yes| C[Push to stack]
-    B -->|No| D{Stack empty or top mismatch?}
-    D -->|Yes| E[Return False]
-    D -->|No| F[Pop from stack]
-    C --> G{More chars?}
-    F --> G
-    G -->|Yes| A
-    G -->|No| H{Stack empty?}
-    H -->|Yes| I[Return True]
-    H -->|No| E
-```
 """
 
 import os

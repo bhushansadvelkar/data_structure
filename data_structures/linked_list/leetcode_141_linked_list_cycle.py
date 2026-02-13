@@ -47,18 +47,6 @@ None, no cycle.
 
 Time Complexity: O(n)
 Space Complexity: O(1)
-
-Approach Diagram - Floyd (Mermaid):
-----------------------------------
-```mermaid
-flowchart TD
-    A[slow=fast=head] --> B{fast and fast.next?}
-    B -->|No| C[Return False]
-    B -->|Yes| D[slow=1 step fast=2 steps]
-    D --> E{slow == fast?}
-    E -->|Yes| F[Return True cycle]
-    E -->|No| B
-```
 """
 
 import os

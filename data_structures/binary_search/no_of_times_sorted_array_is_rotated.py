@@ -26,19 +26,6 @@ Time Complexity: O(log n)
 
 Space Complexity: O(1)
     - Uses only constant auxiliary space.
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A{nums[left] <= nums[right]?} -->|Yes| B[Return left]
-    A -->|No| C[mid = left + right / 2]
-    C --> D{nums[mid] >= nums[left]?}
-    D -->|Yes| E[left = mid + 1]
-    D -->|No| F[right = mid]
-    E --> A
-    F --> A
-```
 """
 
 from data_structures.utils.test_utils import run_test

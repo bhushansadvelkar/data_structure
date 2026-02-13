@@ -35,19 +35,6 @@ maximum sum.
 
 Time Complexity: O(n)
 Space Complexity: O(1)
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart LR
-    subgraph " nums = [2, 1, 5, 1, 3, 2], k = 3 "
-        A["Window 1: 2+1+5=8"]
-        B["Window 2: 1+5+1=7"]
-        C["Window 3: 5+1+3=9 max"]
-        D["Window 4: 1+3+2=6"]
-    end
-    A --> B --> C --> D
-```
 """
 
 import os

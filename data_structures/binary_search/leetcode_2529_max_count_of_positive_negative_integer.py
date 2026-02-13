@@ -46,16 +46,6 @@ Time Complexity: O(log n)
 
 Space Complexity: O(1)
     - Only using variables
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[BS: leftmost where value > 0] --> B[pos = n - left]
-    B --> C[BS: leftmost where value >= 0]
-    C --> D[neg = count before first 0]
-    D --> E[Return max pos neg]
-```
 """
 
 from data_structures.utils.test_utils import run_test

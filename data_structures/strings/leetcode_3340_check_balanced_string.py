@@ -47,17 +47,6 @@ Time Complexity: O(n)
 
 Space Complexity: O(1)
     - Only a few variables (even_sum, odd_sum, counters).
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[even_sum from indices 0 2 4] --> B[odd_sum from indices 1 3 5]
-    B --> C[Single pass stepping by 2]
-    C --> D{even_sum == odd_sum?}
-    D -->|Yes| E[Return True]
-    D -->|No| F[Return False]
-```
 """
 
 import os

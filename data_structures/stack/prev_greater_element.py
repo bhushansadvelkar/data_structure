@@ -68,20 +68,6 @@ Step 5: element=3
     - stack=[5,3], result=[-1,4,2,-1,5]
 
 Final: return [-1, 4, 2, -1, 5]
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[Traverse left to right] --> B{Stack empty?}
-    B -->|Yes| C[result = -1]
-    B -->|No| D{Stack top > current?}
-    D -->|Yes| E[result = stack top]
-    D -->|No| F[Pop until greater or empty]
-    F --> B
-    C --> G[Push current]
-    E --> G
-```
 """
 
 from data_structures.utils.test_utils import run_test

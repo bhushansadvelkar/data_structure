@@ -38,16 +38,6 @@ Time Complexity: O(n)
 
 Space Complexity: O(h)
     - h = height of tree. Recursion call stack depth is at most h (O(n) worst case for skewed tree).
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A{root None?} -->|Yes| B[Return 0]
-    A -->|No| C[left = maxDepth root.left]
-    C --> D[right = maxDepth root.right]
-    D --> E[Return 1 + max left right]
-```
 """
 
 import os

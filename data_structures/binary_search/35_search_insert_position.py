@@ -48,20 +48,6 @@ Time Complexity: O(log n)
 
 Space Complexity: O(1)
     - Only a few variables (l, r, mid).
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A{nums[mid] == target?} -->|Yes| B[Return mid]
-    A -->|No| C{nums[mid] > target?}
-    C -->|Yes| D[r = mid - 1]
-    C -->|No| E[l = mid + 1]
-    D --> F{l <= r?}
-    E --> F
-    F -->|Yes| A
-    F -->|No| G[Return l insert pos]
-```
 """
 
 from data_structures.utils.test_utils import run_test

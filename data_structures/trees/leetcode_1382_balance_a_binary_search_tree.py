@@ -45,17 +45,6 @@ Space Complexity: O(n)
     - Inorder list stores n values: O(n).
     - Recursion stack for build: O(log n) for the balanced tree.
     - Overall: O(n).
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[Inorder traverse BST] --> B[Get sorted list]
-    B --> C[Construct BST from sorted]
-    C --> D[mid = left+right / 2 root]
-    D --> E[Left: construct left mid-1]
-    E --> F[Right: construct mid+1 right]
-```
 """
 
 import os

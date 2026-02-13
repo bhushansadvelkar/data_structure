@@ -37,20 +37,6 @@ increment count.
 
 Time Complexity: O(n)
 Space Complexity: O(1)
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[avg >= threshold iff sum >= k*threshold] --> B[Sliding window sum]
-    B --> C{sum >= k*threshold?}
-    C -->|Yes| D[count++]
-    C -->|No| E[Slide window]
-    D --> E
-    E --> F{More windows?}
-    F -->|Yes| C
-    F -->|No| G[Return count]
-```
 """
 
 import os

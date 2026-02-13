@@ -43,16 +43,6 @@ Time Complexity: O(n log n)
 
 Space Complexity: O(n)
     - Heap stores n (distance, value) pairs.
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A[Build heap: abs(x - num), num for each] --> B[Heapify]
-    B --> C[Pop k times]
-    C --> D[Sort result ascending]
-    D --> E[Return k closest]
-```
 """
 
 import os

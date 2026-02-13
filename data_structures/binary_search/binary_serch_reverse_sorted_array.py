@@ -42,20 +42,6 @@ Time Complexity: O(log n)
     - Each iteration halves the search space
 
 Space Complexity: O(1)
-
-Approach Diagram (Mermaid):
---------------------------
-```mermaid
-flowchart TD
-    A{nums[mid] == target?} -->|Yes| B[Return True]
-    A -->|No| C{nums[mid] < target?}
-    C -->|Yes: target larger| D[end = mid - 1]
-    C -->|No: target smaller| E[start = mid + 1]
-    D --> F{start <= end?}
-    E --> F
-    F -->|Yes| A
-    F -->|No| G[Return False]
-```
 """
 
 from data_structures.utils.test_utils import run_test
