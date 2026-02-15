@@ -35,12 +35,18 @@ Follow-up:
 ----------
 Recursive solution is trivial, could you do it iteratively?
 
-Approach:
----------
-(TODO: describe how you solved it)
+Approach: How I solved it
+-------------------------
+Recursive: Base case — if root is None, return. Otherwise recurse on left
+subtree, then on right subtree, then append root.val to result. Order is
+left -> right -> root.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n)
+    - n = number of nodes. Each node is visited once.
+
+Space Complexity: O(h)
+    - h = height of tree. Recursion call stack depth is at most h (O(n) worst
+      case for skewed tree). Output list is O(n) but not counted as extra.
 """
 
 import os
@@ -68,15 +74,14 @@ class Solution(object):
         :rtype: List[int]
         """
         self.result = []
-        self.generate_post_order_traversal(root)
+        self._postorder(root)
         return self.result
 
-    def get_post_order_traversal(self, root):
+    def _postorder(self, root):
         if root is None:
-            return None 
-
-        self.get_post_order_traversal(root.left)
-        self.generate_post_order_traversal(root.right)
+            return
+        self._postorder(root.left)
+        self._postorder(root.right)
         self.result.append(root.val)
 
 

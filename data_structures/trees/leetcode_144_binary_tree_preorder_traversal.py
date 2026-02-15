@@ -35,12 +35,18 @@ Follow-up:
 ----------
 Recursive solution is trivial, could you do it iteratively?
 
-Approach:
----------
-(TODO: describe how you solved it)
+Approach: How I solved it
+-------------------------
+Recursive: Base case — if root is None, return. Otherwise append root.val to
+result, then recurse on left subtree, then on right subtree. Order is
+root -> left -> right.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n)
+    - n = number of nodes. Each node is visited once.
+
+Space Complexity: O(h)
+    - h = height of tree. Recursion call stack depth is at most h (O(n) worst
+      case for skewed tree). Output list is O(n) but not counted as extra.
 """
 
 import os
