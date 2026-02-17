@@ -77,11 +77,13 @@ class ListNode(object):
 class MyLinkedList(object):
     """
     Design Linked List: get, addAtHead, addAtTail, addAtIndex, deleteAtIndex.
+    Uses same logic as insert_at_head, insert_at_tail, insert_at_index,
+    delete_at_head, delete_at_tail, delete_at_index (head-based API).
     """
 
     def __init__(self):
         """Initialize the linked list."""
-        pass
+        self.head = None
 
     def get(self, index):
         """
@@ -89,7 +91,16 @@ class MyLinkedList(object):
         :type index: int
         :rtype: int
         """
-        pass
+        if index < 0:
+            return -1
+        curr = self.head
+        for _ in range(index):
+            if curr is None:
+                return -1
+            curr = curr.next
+        if curr is None:
+            return -1
+        return curr.val
 
     def addAtHead(self, val):
         """
@@ -97,7 +108,9 @@ class MyLinkedList(object):
         :type val: int
         :rtype: None
         """
-        pass
+        node = ListNode(val)
+        node.next = self.head
+        self.head = node
 
     def addAtTail(self, val):
         """
@@ -105,7 +118,14 @@ class MyLinkedList(object):
         :type val: int
         :rtype: None
         """
-        pass
+        node = ListNode(val)
+        if not self.head:
+            self.head = node
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = node
 
     def addAtIndex(self, index, val):
         """
@@ -115,7 +135,21 @@ class MyLinkedList(object):
         :type val: int
         :rtype: None
         """
-        pass
+        if index == 0:
+            self.addAtHead(val)
+            return
+        if not self.head:
+            return
+        node = ListNode(val)
+        curr = self.head
+        for _ in range(index - 1):
+            if curr is None:
+                return
+            curr = curr.next
+        if curr is None:
+            return
+        node.next = curr.next
+        curr.next = node
 
     def deleteAtIndex(self, index):
         """
@@ -123,7 +157,19 @@ class MyLinkedList(object):
         :type index: int
         :rtype: None
         """
-        pass
+        if not self.head:
+            return
+        if index == 0:
+            self.head = self.head.next
+            return
+        curr = self.head
+        for _ in range(index - 1):
+            if curr is None:
+                return
+            curr = curr.next
+        if curr is None or curr.next is None:
+            return
+        curr.next = curr.next.next
 
 
 def list_from_my_linked_list(ll):
@@ -141,19 +187,81 @@ def list_from_my_linked_list(ll):
 
 if __name__ == "__main__":
     # Example 1: addAtHead(1), addAtTail(3), addAtIndex(1,2), get(1)->2, deleteAtIndex(1), get(1)->3
-    # ll = MyLinkedList()
-    # ll.addAtHead(1)
-    # ll.addAtTail(3)
-    # ll.addAtIndex(1, 2)
-    # run_test(ll.get(1), 2, "get(1) after addAtIndex(1,2)")
-    # ll.deleteAtIndex(1)
-    # run_test(ll.get(1), 3, "get(1) after deleteAtIndex(1)")
+    ll = MyLinkedList()
+    ll.addAtHead(1)
+    ll.addAtTail(3)
+    ll.addAtIndex(1, 2)
+    run_test(ll.get(1), 2, "get(1) after addAtIndex(1,2)")
+    ll.deleteAtIndex(1)
+    run_test(ll.get(1), 3, "get(1) after deleteAtIndex(1)")
 
-    # # get invalid index
-    # ll2 = MyLinkedList()
-    # run_test(ll2.get(0), -1, "get(0) on empty list")
-    # ll2.addAtHead(1)
-    # run_test(ll2.get(1), -1, "get(1) when length is 1")
+    # get invalid index
+    ll2 = MyLinkedList()
+    run_test(ll2.get(0), -1, "get(0) on empty list")
+    ll2.addAtHead(1)
+    run_test(ll2.get(1), -1, "get(1) when length is 1")
 
-    node = ListNode(1)
-    print(node.val, node.next)
+    # addAtTail on empty list
+    ll3 = MyLinkedList()
+    ll3.addAtTail(5)
+    run_test(list_from_my_linked_list(ll3), [5], "addAtTail on empty -> [5]")
+
+    # addAtIndex at 0 (same as addAtHead)
+    ll4 = MyLinkedList()
+    ll4.addAtHead(2)
+    ll4.addAtIndex(0, 1)
+    run_test(list_from_my_linked_list(ll4), [1, 2], "addAtIndex(0, 1) -> [1,2]")
+
+    # addAtIndex at end (append)
+    ll5 = MyLinkedList()
+    ll5.addAtHead(1)
+    ll5.addAtHead(2)
+    ll5.addAtIndex(2, 3)
+    run_test(list_from_my_linked_list(ll5), [2, 1, 3], "addAtIndex(2, 3) append -> [2,1,3]")
+
+    # addAtIndex index > length (no-op)
+    ll6 = MyLinkedList()
+    ll6.addAtHead(1)
+    ll6.addAtIndex(5, 99)
+    run_test(list_from_my_linked_list(ll6), [1], "addAtIndex(5,) on len 1 -> unchanged")
+
+    # deleteAtIndex(0) — delete head
+    ll7 = MyLinkedList()
+    ll7.addAtHead(3)
+    ll7.addAtHead(2)
+    ll7.addAtHead(1)
+    ll7.deleteAtIndex(0)
+    run_test(list_from_my_linked_list(ll7), [2, 3], "deleteAtIndex(0) -> [2,3]")
+
+    # deleteAtIndex at end
+    ll8 = MyLinkedList()
+    ll8.addAtTail(1)
+    ll8.addAtTail(2)
+    ll8.addAtTail(3)
+    ll8.deleteAtIndex(2)
+    run_test(list_from_my_linked_list(ll8), [1, 2], "deleteAtIndex(2) last -> [1,2]")
+
+    # deleteAtIndex invalid (no-op)
+    ll9 = MyLinkedList()
+    ll9.addAtHead(1)
+    ll9.addAtTail(2)
+    ll9.deleteAtIndex(3)
+    run_test(list_from_my_linked_list(ll9), [1, 2], "deleteAtIndex(3) invalid -> unchanged")
+
+    # single node: delete -> empty, get(0) -> -1
+    ll10 = MyLinkedList()
+    ll10.addAtHead(1)
+    ll10.deleteAtIndex(0)
+    run_test(ll10.get(0), -1, "single node delete -> get(0) == -1")
+    run_test(list_from_my_linked_list(ll10), [], "single node delete -> []")
+
+    # get each index
+    ll11 = MyLinkedList()
+    for v in [10, 20, 30]:
+        ll11.addAtTail(v)
+    run_test(ll11.get(0), 10, "get(0)")
+    run_test(ll11.get(1), 20, "get(1)")
+    run_test(ll11.get(2), 30, "get(2)")
+    run_test(ll11.get(3), -1, "get(3) invalid")
+
+
