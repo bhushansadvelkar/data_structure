@@ -38,12 +38,17 @@ Constraints:
 - The number of nodes in the list is in the range [1, 10^5].
 - 1 <= Node.val <= 10^5
 
-Approach:
----------
-(TODO: describe your approach, e.g. fast/slow to find middle then unlink)
+How I solved it:
+---------------
+Fast/slow pointer to find the middle node. Keep a prev pointer trailing slow.
+When fast reaches the end, slow is at the middle; unlink it by setting
+prev.next = slow.next. Handle edge cases: empty list and single-node list
+return None (no middle to delete in size 1).
 
 Time Complexity: O(n)
+    - Single pass to find middle.
 Space Complexity: O(1)
+    - Only pointers, no extra structures.
 """
 
 import os

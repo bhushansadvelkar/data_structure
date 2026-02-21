@@ -54,9 +54,12 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO: describe your approach)
+Singly linked list with a head pointer. addAtHead: create node, point to head,
+update head. addAtTail: traverse to last node, append. get/addAtIndex/deleteAtIndex:
+traverse to the (index-1)-th node, then perform the operation. All index-based
+ops require O(index) traversal.
 
-Time Complexity: O(1) for addAtHead/addAtTail; O(index) for get/addAtIndex/deleteAtIndex.
+Time Complexity: O(1) for addAtHead; O(n) for addAtTail; O(index) for get/addAtIndex/deleteAtIndex.
 Space Complexity: O(n) for n nodes.
 """
 

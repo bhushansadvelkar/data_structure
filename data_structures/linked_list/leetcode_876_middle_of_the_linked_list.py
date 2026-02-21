@@ -32,10 +32,15 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO: describe your approach)
+Fast/slow pointer: move fast two steps and slow one step per iteration. When
+fast reaches the end (or fast.next is None), slow is at the middle. For even
+length (e.g. 6 nodes), fast stops when it can't advance; slow ends at the
+second middle node as required.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n)
+    - Single pass; slow traverses roughly n/2 nodes.
+Space Complexity: O(1)
+    - Only two pointers, no extra data structures.
 """
 
 import os

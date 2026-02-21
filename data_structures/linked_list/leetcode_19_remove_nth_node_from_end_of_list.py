@@ -35,12 +35,17 @@ Follow-up:
 ----------
 Could you do this in one pass?
 
-Approach:
----------
-(TODO: describe your approach, e.g. two-pointer with fast n steps ahead)
+How I solved it:
+---------------
+Two-pointer: advance fast n steps first. If fast becomes None, the nth-from-end
+is the head—return head.next. Otherwise, move both fast and slow until
+fast.next is None; slow is then one node before the target. Remove the target
+with slow.next = slow.next.next.
 
 Time Complexity: O(n)
+    - Single pass; at most n steps.
 Space Complexity: O(1)
+    - Only two pointers.
 """
 
 import os

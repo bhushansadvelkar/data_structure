@@ -28,11 +28,26 @@ Constraints:
 - 1 <= nums.length <= 100
 - 1 <= nums[i], k <= 100
 
-Approach:
----------
-1. Brute force: nested loops over all (i,j). Time O(n^2), Space O(1).
-2. Optimized: group indices by value, only check pairs within same value.
-   Time O(n) + O(sum of size^2 per group), worst O(n^2). Space O(n).
+How I solved it:
+---------------
+1. Brute force: Iterate over all pairs (i, j) with i < j. For each pair, check
+   if nums[i] == nums[j] and (i * j) % k == 0. Count valid pairs.
+
+2. Optimized: Group indices by value using a dict. For each value, we only need
+   to check pairs among indices that share that value (since nums[i] must equal
+   nums[j]). Within each group, iterate over all pairs and check (i * j) % k == 0.
+   This skips many pairs when there are many distinct values.
+
+Time Complexity:
+---------------
+- Brute force: O(n²) — nested loops over all pairs.
+- Optimized: O(n) to build groups + O(sum of group_size²). Worst case O(n²)
+  when all elements are equal; best case O(n) when all distinct.
+
+Space Complexity:
+-----------------
+- Brute force: O(1) — only a counter.
+- Optimized: O(n) — dict storing indices per value.
 """
 
 import os

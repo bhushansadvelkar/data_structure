@@ -36,10 +36,17 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO: describe your approach)
+Sliding window with two pointers (left, right) and a set to track characters in
+the current window. Expand right: add s[right] to the set and update max length.
+If s[right] is already in the set (repeat), shrink left: remove s[left] and
+increment left until the repeat is gone. Each character is added and removed at
+most once.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n)
+    - Each character visited at most twice (once by right, once by left).
+Space Complexity: O(min(n, |charset|))
+    - The set holds at most all distinct chars in the current window; bounded
+      by charset size (e.g. 128 for ASCII) or n.
 """
 
 import os

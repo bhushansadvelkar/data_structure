@@ -39,9 +39,16 @@ Constraints:
 - 0 <= index <= length of list
 - -10^5 <= val <= 10^5
 
-How to implement:
-----------------
-(TODO: describe approach for each operation)
+How I solved it:
+---------------
+- insert_at_head: Create node, set node.next = head, return node.
+- insert_at_tail: If empty return new node. Else traverse to last node, append.
+- insert_at_index: Index 0 → insert_at_head. Else traverse to (index-1)-th,
+  insert new node between curr and curr.next.
+- delete_at_head: Return head.next (or None).
+- delete_at_tail: Traverse to second-last, set curr.next = None.
+- delete_at_index: Index 0 → delete_at_head. Else traverse to (index-1)-th,
+  set curr.next = curr.next.next.
 
 Time Complexity: O(1) for insert/delete at head; O(n) for tail or at index.
 Space Complexity: O(1) per operation.

@@ -33,7 +33,9 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO: use head and tail; link next and prev; empty array returns None.)
+Create head from first element. For each subsequent element, create a node,
+link tail.next = node and node.prev = tail, then advance tail. Empty array
+returns None.
 
 Time Complexity: O(n)
 Space Complexity: O(n) for n nodes.
