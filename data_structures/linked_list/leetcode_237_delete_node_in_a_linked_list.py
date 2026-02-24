@@ -36,10 +36,11 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO)
+Copy next node's value into current node, then bypass next node (current.next =
+current.next.next). No head access needed.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(1)
+Space Complexity: O(1)
 """
 
 import os

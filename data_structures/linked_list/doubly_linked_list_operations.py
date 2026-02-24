@@ -16,7 +16,11 @@ Node structure: val, next, prev
 
 How I solved it:
 ----------------
-(TODO)
+Add: create node, link prev/next; handle empty list and index 0 (head). Delete:
+unlink node (update prev.next and next.prev); handle head/tail and empty.
+
+Time Complexity: O(1) for head/tail add/delete; O(n) for index/value ops.
+Space Complexity: O(1) per operation.
 """
 
 import os
@@ -98,7 +102,19 @@ def add_at_tail(head, val):
     :type val: int
     :rtype: DoublyListNode
     """
-    pass
+    node = DoublyListNode(val)
+
+    if not head:
+        return node 
+
+    curr = head 
+    while curr.next:
+        curr = curr.next 
+
+    curr.next = node 
+    node.prev = curr
+
+    return head
 
 
 def add_at_index(head, index, val):
@@ -111,7 +127,28 @@ def add_at_index(head, index, val):
     :type val: int
     :rtype: DoublyListNode
     """
-    pass
+    if index <= 0:
+        return add_at_head(head, val)
+
+    if head is None:
+        return DoublyListNode(val)
+
+    node = DoublyListNode(val)
+    curr = head
+    for _ in range(index):
+        if curr.next is None:
+            curr.next = node
+            node.prev = curr
+            return head
+        curr = curr.next
+
+    prev = curr.prev
+    prev.next = node
+    node.prev = prev
+    node.next = curr
+    curr.prev = node
+    return head
+
 
 
 # --- Delete Operations ---
@@ -123,7 +160,12 @@ def delete_at_head(head):
     :type head: DoublyListNode
     :rtype: DoublyListNode
     """
-    pass
+    if head is None or head.next is None:
+        return None
+
+    head = head.next 
+    head.prev = None
+    return head
 
 
 def delete_at_tail(head):
@@ -133,8 +175,17 @@ def delete_at_tail(head):
     :type head: DoublyListNode
     :rtype: DoublyListNode
     """
-    pass
+    if head is None or head.next is None:
+        return None
 
+    curr = head 
+    while curr.next.next:
+        curr = curr.next 
+
+    curr.next = None 
+    
+    return head
+    
 
 def delete_by_value(head, val):
     """
@@ -144,7 +195,29 @@ def delete_by_value(head, val):
     :type val: int
     :rtype: DoublyListNode
     """
-    pass
+    if head is None:
+        return None
+    
+    if head.val == val:
+        new_head = head.next 
+        if new_head:
+            new_head.prev = None
+        return new_head
+
+    curr = head 
+    while curr:
+        if curr.val == val:
+            prev = curr.prev 
+            prev.next = curr.next
+            if curr.next: 
+                curr.next.prev =  prev 
+
+            return head 
+
+        curr = curr.next 
+
+    return head 
+
 
 
 def delete_at_index(head, index):
@@ -155,8 +228,28 @@ def delete_at_index(head, index):
     :type index: int
     :rtype: DoublyListNode
     """
-    pass
+    if head is None:
+        return None
 
+    if index == 0:
+        new_head = head.next
+        if new_head:
+            new_head.prev = None
+        return new_head
+
+    curr = head
+    while index > 0 and curr:
+        curr = curr.next
+        index -= 1
+
+    if curr is None:
+        return head
+
+    prev = curr.prev
+    prev.next = curr.next
+    if curr.next:
+        curr.next.prev = prev
+    return head
 
 if __name__ == "__main__":
     # --- add_at_head ---
@@ -200,6 +293,18 @@ if __name__ == "__main__":
     head = array_to_doubly_linked_list([1])
     head = delete_at_head(head)
     run_test(list_to_array(head) if head else [], [], "delete_at_head single node")
+    head = array_to_doubly_linked_list([1, 2])
+    head = delete_at_head(head)
+    run_test(list_to_array(head), [2], "delete_at_head two nodes [1,2]")
+    head = array_to_doubly_linked_list([1, 2, 3])
+    head = delete_at_head(head)
+    head = delete_at_head(head)
+    run_test(list_to_array(head), [3], "delete_at_head twice [1,2,3]")
+    head = array_to_doubly_linked_list([1, 2, 3, 4, 5])
+    head = delete_at_head(head)
+    run_test(list_to_array(head), [2, 3, 4, 5], "delete_at_head [1,2,3,4,5]")
+    head = delete_at_head(None)
+    run_test(list_to_array(head) if head else [], [], "delete_at_head empty list")
 
     # --- delete_at_tail ---
     head = array_to_doubly_linked_list([1, 2, 3])
@@ -208,6 +313,18 @@ if __name__ == "__main__":
     head = array_to_doubly_linked_list([1])
     head = delete_at_tail(head)
     run_test(list_to_array(head) if head else [], [], "delete_at_tail single node")
+    head = array_to_doubly_linked_list([1, 2])
+    head = delete_at_tail(head)
+    run_test(list_to_array(head), [1], "delete_at_tail two nodes [1,2]")
+    head = array_to_doubly_linked_list([1, 2, 3])
+    head = delete_at_tail(head)
+    head = delete_at_tail(head)
+    run_test(list_to_array(head), [1], "delete_at_tail twice [1,2,3]")
+    head = array_to_doubly_linked_list([1, 2, 3, 4, 5])
+    head = delete_at_tail(head)
+    run_test(list_to_array(head), [1, 2, 3, 4], "delete_at_tail [1,2,3,4,5]")
+    head = delete_at_tail(None)
+    run_test(list_to_array(head) if head else [], [], "delete_at_tail empty list")
 
     # --- delete_by_value ---
     head = array_to_doubly_linked_list([1, 2, 3])
@@ -216,6 +333,23 @@ if __name__ == "__main__":
     head = array_to_doubly_linked_list([1, 2, 3])
     head = delete_by_value(head, 1)
     run_test(list_to_array(head), [2, 3], "delete_by_value(1) head")
+    head = array_to_doubly_linked_list([1, 2, 3])
+    head = delete_by_value(head, 3)
+    run_test(list_to_array(head), [1, 2], "delete_by_value(3) tail [1,2,3]")
+    head = array_to_doubly_linked_list([5])
+    head = delete_by_value(head, 5)
+    run_test(list_to_array(head) if head else [], [], "delete_by_value(5) single node")
+    head = array_to_doubly_linked_list([1, 2, 3])
+    head = delete_by_value(head, 99)
+    run_test(list_to_array(head), [1, 2, 3], "delete_by_value(99) not found")
+    head = delete_by_value(None, 1)
+    run_test(list_to_array(head) if head else [], [], "delete_by_value empty list")
+    head = array_to_doubly_linked_list([1, 2])
+    head = delete_by_value(head, 2)
+    run_test(list_to_array(head), [1], "delete_by_value(2) two nodes [1,2]")
+    head = array_to_doubly_linked_list([1, 2, 2, 3])
+    head = delete_by_value(head, 2)
+    run_test(list_to_array(head), [1, 2, 3], "delete_by_value(2) first occurrence [1,2,2,3]")
 
     # --- delete_at_index ---
     head = array_to_doubly_linked_list([1, 2, 3])
@@ -224,3 +358,20 @@ if __name__ == "__main__":
     head = array_to_doubly_linked_list([1, 2, 3])
     head = delete_at_index(head, 0)
     run_test(list_to_array(head), [2, 3], "delete_at_index(0) [1,2,3]")
+    head = array_to_doubly_linked_list([1, 2, 3])
+    head = delete_at_index(head, 2)
+    run_test(list_to_array(head), [1, 2], "delete_at_index(2) tail [1,2,3]")
+    head = array_to_doubly_linked_list([7])
+    head = delete_at_index(head, 0)
+    run_test(list_to_array(head) if head else [], [], "delete_at_index(0) single node")
+    head = delete_at_index(None, 0)
+    run_test(list_to_array(head) if head else [], [], "delete_at_index empty list")
+    head = array_to_doubly_linked_list([1, 2])
+    head = delete_at_index(head, 1)
+    run_test(list_to_array(head), [1], "delete_at_index(1) two nodes [1,2]")
+    head = array_to_doubly_linked_list([1, 2, 3, 4, 5])
+    head = delete_at_index(head, 2)
+    run_test(list_to_array(head), [1, 2, 4, 5], "delete_at_index(2) [1,2,3,4,5]")
+    head = array_to_doubly_linked_list([1, 2, 3])
+    head = delete_at_index(head, 5)
+    run_test(list_to_array(head), [1, 2, 3], "delete_at_index(5) out of bounds")

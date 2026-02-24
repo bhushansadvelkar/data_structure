@@ -36,10 +36,11 @@ implement both?
 
 How I solved it:
 ----------------
-(TODO)
+Iterative: maintain prev and curr; at each step set curr.next = prev, then
+advance prev = curr and curr = next. Return prev as new head.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n)
+Space Complexity: O(1)
 """
 
 import os
@@ -85,8 +86,18 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        # TODO
-        pass
+        curr = head 
+        prev = None 
+        next = None 
+
+        while curr:
+            next = curr.next 
+            curr.next = prev 
+            prev = curr
+            curr = next 
+
+
+        return prev 
 
 
 if __name__ == "__main__":
