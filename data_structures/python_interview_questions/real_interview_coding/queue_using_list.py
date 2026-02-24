@@ -1,6 +1,5 @@
 """
-69. Implement queue using list
+Queue using list
 """
 
 # TODO: implement
-

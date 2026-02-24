@@ -1,6 +1,5 @@
 """
-13. Write a closure to multiply numbers with fixed multiplier
+Multiply with fixed multiplier (closure)
 """
 
 # TODO: implement
-

@@ -1,6 +1,5 @@
 """
-57. Modify closure variable using nonlocal
+Nonlocal and modifying closure
 """
 
 # TODO: implement
-

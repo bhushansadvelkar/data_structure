@@ -1,6 +1,5 @@
 """
-39. Implement immutable object
+Immutable object
 """
 
 # TODO: implement
-

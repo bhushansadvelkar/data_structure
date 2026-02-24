@@ -1,6 +1,5 @@
 """
-43. Convert loop into list comprehension
+Convert loop to list comprehension
 """
 
 # TODO: implement
-

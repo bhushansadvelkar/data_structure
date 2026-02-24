@@ -1,6 +1,5 @@
 """
-50. Implement custom dictionary
+Custom dictionary implementation
 """
 
 # TODO: implement
-

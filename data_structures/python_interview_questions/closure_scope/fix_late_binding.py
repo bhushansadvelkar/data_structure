@@ -1,6 +1,5 @@
 """
-55. Fix late binding closure issue
+Fix late binding in closures
 """
 
 # TODO: implement
-

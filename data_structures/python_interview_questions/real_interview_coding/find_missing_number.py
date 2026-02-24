@@ -1,6 +1,5 @@
 """
-67. Find missing number in array
+Find missing number
 """
 
 # TODO: implement
-

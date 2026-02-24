@@ -1,6 +1,5 @@
 """
-45. Implement context manager using class
+Context manager class
 """
 
 # TODO: implement
-

@@ -1,6 +1,5 @@
 """
-29. Implement __len__
+__len__ magic method
 """
 
 # TODO: implement
-

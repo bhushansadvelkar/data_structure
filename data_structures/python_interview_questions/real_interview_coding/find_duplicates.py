@@ -1,6 +1,5 @@
 """
-62. Find duplicate elements
+Find duplicates
 """
 
 # TODO: implement
-

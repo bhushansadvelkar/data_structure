@@ -1,6 +1,5 @@
 """
-64. Merge two dictionaries
+Merge two dicts
 """
 
 # TODO: implement
-

@@ -1,6 +1,5 @@
 """
-68. Implement stack using list
+Stack using list
 """
 
 # TODO: implement
-

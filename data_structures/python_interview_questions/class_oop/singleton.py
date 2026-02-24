@@ -1,6 +1,5 @@
 """
-34. Implement Singleton pattern
+Singleton pattern
 """
 
 # TODO: implement
-

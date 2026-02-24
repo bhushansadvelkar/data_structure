@@ -1,6 +1,5 @@
 """
-49. Implement LRU cache using pure Python
+LRU cache implementation
 """
 
 # TODO: implement
-

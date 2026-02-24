@@ -1,6 +1,5 @@
 """
-32. Implement __getitem__
+__getitem__ magic method
 """
 
 # TODO: implement
-

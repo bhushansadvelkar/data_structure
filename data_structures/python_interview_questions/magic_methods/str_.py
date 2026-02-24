@@ -1,6 +1,5 @@
 """
-27. Implement __str__
+__str__ magic method
 """
 
 # TODO: implement
-

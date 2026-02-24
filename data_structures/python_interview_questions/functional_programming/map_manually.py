@@ -1,6 +1,5 @@
 """
-40. Implement map manually
+Implement map manually
 """
 
 # TODO: implement
-

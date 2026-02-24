@@ -1,6 +1,5 @@
 """
-61. Count frequency of characters
+Count character frequency
 """
 
 # TODO: implement
-

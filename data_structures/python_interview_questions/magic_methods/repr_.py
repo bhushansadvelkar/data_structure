@@ -1,6 +1,5 @@
 """
-28. Implement __repr__
+__repr__ magic method
 """
 
 # TODO: implement
-

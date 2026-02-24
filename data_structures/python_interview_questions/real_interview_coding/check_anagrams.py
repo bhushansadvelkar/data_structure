@@ -1,6 +1,5 @@
 """
-66. Check if strings are anagrams
+Check anagrams
 """
 
 # TODO: implement
-

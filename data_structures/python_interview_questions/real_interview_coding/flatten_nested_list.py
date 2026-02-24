@@ -1,6 +1,5 @@
 """
-63. Flatten nested list
+Flatten nested list
 """
 
 # TODO: implement
-

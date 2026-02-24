@@ -1,6 +1,5 @@
 """
-53. Implement custom range function
+Custom range implementation
 """
 
 # TODO: implement
-

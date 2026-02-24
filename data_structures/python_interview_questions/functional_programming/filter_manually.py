@@ -1,6 +1,5 @@
 """
-41. Implement filter manually
+Implement filter manually
 """
 
 # TODO: implement
-

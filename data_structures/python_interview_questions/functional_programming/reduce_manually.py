@@ -1,6 +1,5 @@
 """
-42. Implement reduce manually
+Implement reduce manually
 """
 
 # TODO: implement
-

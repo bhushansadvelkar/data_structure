@@ -1,6 +1,5 @@
 """
-60. Find first non-repeating character
+First non-repeating character
 """
 
 # TODO: implement
-

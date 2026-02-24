@@ -1,6 +1,5 @@
 """
-30. Implement __eq__
+__eq__ magic method
 """
 
 # TODO: implement
-
