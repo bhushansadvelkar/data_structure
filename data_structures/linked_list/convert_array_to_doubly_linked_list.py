@@ -56,19 +56,14 @@ class DoublyListNode(object):
         self.prev = prev
 
 
-def list_to_array_forward(head):
-    """Convert doubly linked list to list from head to tail (using next)."""
-    pass
-
-
-def list_to_array_backward(tail):
-    """Convert doubly linked list to list from tail to head (using prev)."""
-    pass
-
-
 def get_tail(head):
     """Return the last node of the list (tail)."""
-    pass
+    if head is None:
+        return None
+    curr = head
+    while curr.next:
+        curr = curr.next
+    return curr
 
 
 def traverse_forward(head):
@@ -99,17 +94,18 @@ def traverse_backward(tail):
     :type tail: DoublyListNode
     :rtype: List[int]
     """
-    pass
+    if tail is None:
+        return []
 
+    result = []
 
-def length_of_doubly_linked_list(head):
-    """Return the number of nodes. Empty list returns 0."""
-    pass
+    curr = tail 
 
+    while curr:
+        result.append(curr.val)
+        curr = curr.prev
 
-def search_in_doubly_linked_list(head, target):
-    """Return True if target exists in the list, else False."""
-    pass
+    return result
 
 
 def array_to_doubly_linked_list(arr):
@@ -128,37 +124,13 @@ def array_to_doubly_linked_list(arr):
 
     for i in range(1, len(arr)):
         node = DoublyListNode(arr[i])
-        tail.next = node 
-        tail.prev = tail 
+        tail.next = node
+        node.prev = tail
         tail = node 
 
     return head
 
 if __name__ == "__main__":
-    def head_to_list(head):
-        return list_to_array_forward(head) if head is not None else []
-
-    # # --- array_to_doubly_linked_list ---
-    # run_test(head_to_list(array_to_doubly_linked_list([1, 2, 3])), [1, 2, 3], "arr=[1,2,3]")
-    # run_test(head_to_list(array_to_doubly_linked_list([])), [], "arr=[]")
-    # run_test(head_to_list(array_to_doubly_linked_list([10])), [10], "arr=[10]")
-    # run_test(
-    #     head_to_list(array_to_doubly_linked_list([5, 0, -1, 2])),
-    #     [5, 0, -1, 2],
-    #     "arr=[5,0,-1,2]",
-    # )
-    # run_test(head_to_list(array_to_doubly_linked_list([7, 7, 7])), [7, 7, 7], "arr=[7,7,7]")
-    # run_test(
-    #     head_to_list(array_to_doubly_linked_list([-100, 0, 100])),
-    #     [-100, 0, 100],
-    #     "arr=[-100,0,100]",
-    # )
-    # run_test(
-    #     head_to_list(array_to_doubly_linked_list([1, 2, 3, 4, 5])),
-    #     [1, 2, 3, 4, 5],
-    #     "arr=[1,2,3,4,5]",
-    # )
-
     # --- traverse_forward ---
     head = array_to_doubly_linked_list([1, 2, 3])
     run_test(traverse_forward(head), [1, 2, 3], "traverse forward 1<->2<->3")
@@ -168,67 +140,23 @@ if __name__ == "__main__":
     head = array_to_doubly_linked_list([1, 2, 3, 4])
     run_test(traverse_forward(head), [1, 2, 3, 4], "traverse forward 1<->2<->3<->4")
 
-    # # --- traverse_backward (from tail) ---
-    # head = array_to_doubly_linked_list([1, 2, 3])
-    # tail = get_tail(head)
-    # run_test(traverse_backward(tail), [3, 2, 1], "traverse backward from tail")
-    # run_test(traverse_backward(None), [], "traverse backward empty")
-    # head = array_to_doubly_linked_list([1])
-    # tail = get_tail(head)
-    # run_test(traverse_backward(tail), [1], "traverse backward single node")
-    # head = array_to_doubly_linked_list([4, 3, 2, 1])
-    # tail = get_tail(head)
-    # run_test(traverse_backward(tail), [1, 2, 3, 4], "traverse backward 4<->3<->2<->1")
+    # --- traverse_backward (from tail) ---
+    head = array_to_doubly_linked_list([1, 2, 3])
+    tail = get_tail(head)
+    run_test(traverse_backward(tail), [3, 2, 1], "traverse backward from tail")
+    run_test(traverse_backward(None), [], "traverse backward empty")
+    head = array_to_doubly_linked_list([1])
+    tail = get_tail(head)
+    run_test(traverse_backward(tail), [1], "traverse backward single node")
+    head = array_to_doubly_linked_list([4, 3, 2, 1])
+    tail = get_tail(head)
+    run_test(traverse_backward(tail), [1, 2, 3, 4], "traverse backward 4<->3<->2<->1")
 
-    # # --- get_tail ---
-    # head = array_to_doubly_linked_list([1, 2, 3])
-    # tail = get_tail(head)
-    # run_test(tail.val if tail else None, 3, "get_tail([1,2,3]) val")
-    # run_test(get_tail(None), None, "get_tail(None)")
-    # head = array_to_doubly_linked_list([99])
-    # tail = get_tail(head)
-    # run_test(tail.val if tail else None, 99, "get_tail single node")
-
-    # # --- list_to_array_backward ---
-    # head = array_to_doubly_linked_list([1, 2, 3])
-    # tail = get_tail(head)
-    # run_test(list_to_array_backward(tail), [3, 2, 1], "list_to_array_backward")
-    # run_test(list_to_array_backward(None), [], "list_to_array_backward None")
-
-    # # --- length_of_doubly_linked_list ---
-    # run_test(
-    #     length_of_doubly_linked_list(array_to_doubly_linked_list([1, 2, 3])),
-    #     3,
-    #     "length of 1<->2<->3",
-    # )
-    # run_test(length_of_doubly_linked_list(None), 0, "length of empty")
-    # run_test(
-    #     length_of_doubly_linked_list(array_to_doubly_linked_list([10])),
-    #     1,
-    #     "length of single node",
-    # )
-    # run_test(
-    #     length_of_doubly_linked_list(array_to_doubly_linked_list([1, 2, 3, 4, 5])),
-    #     5,
-    #     "length of 5 nodes",
-    # )
-    # run_test(
-    #     length_of_doubly_linked_list(array_to_doubly_linked_list([])),
-    #     0,
-    #     "length of empty (from [])",
-    # )
-
-    # # --- search_in_doubly_linked_list ---
-    # head = array_to_doubly_linked_list([1, 2, 3])
-    # run_test(search_in_doubly_linked_list(head, 2), True, "search 2 in list")
-    # run_test(search_in_doubly_linked_list(head, 5), False, "search 5 in list")
-    # run_test(search_in_doubly_linked_list(None, 1), False, "search in empty list")
-    # run_test(
-    #     search_in_doubly_linked_list(array_to_doubly_linked_list([10]), 10),
-    #     True,
-    #     "search 10 in single node",
-    # )
-    # head = array_to_doubly_linked_list([1, 2, 3])
-    # run_test(search_in_doubly_linked_list(head, 1), True, "search head val")
-    # run_test(search_in_doubly_linked_list(head, 3), True, "search tail val")
-    # run_test(search_in_doubly_linked_list(head, 0), False, "search missing")
+    # --- get_tail ---
+    head = array_to_doubly_linked_list([1, 2, 3])
+    tail = get_tail(head)
+    run_test(tail.val if tail else None, 3, "get_tail([1,2,3]) val")
+    run_test(get_tail(None), None, "get_tail(None)")
+    head = array_to_doubly_linked_list([99])
+    tail = get_tail(head)
+    run_test(tail.val if tail else None, 99, "get_tail single node")
