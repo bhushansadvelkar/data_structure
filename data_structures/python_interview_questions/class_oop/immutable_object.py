@@ -1,5 +1,6 @@
 """
 Immutable object
+
 """
 
 # TODO: implement

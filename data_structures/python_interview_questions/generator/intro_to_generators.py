@@ -2,6 +2,7 @@
 Introduction to Python Generators
 =================================
 
+
 A generator is a function that uses `yield` instead of `return`. When called,
 it returns a generator object (an iterator) that produces values one at a time,
 on demand. Generators are memory-efficient because they don't build the entire

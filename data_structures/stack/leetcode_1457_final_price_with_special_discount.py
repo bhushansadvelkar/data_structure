@@ -5,6 +5,7 @@ https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/
 Difficulty: Easy
 Topics: Array, Stack, Monotonic Stack
 
+
 Problem:
 --------
 You are given an integer array prices where prices[i] is the price of the ith

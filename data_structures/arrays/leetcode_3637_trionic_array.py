@@ -5,6 +5,7 @@ https://leetcode.com/problems/trionic-array-i/
 Difficulty: Easy
 Topics: Array, Simulation
 
+
 Problem:
 --------
 A trionic array is an array that has three distinct phases in order:

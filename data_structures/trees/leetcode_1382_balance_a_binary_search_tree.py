@@ -5,6 +5,7 @@ https://leetcode.com/problems/balance-a-binary-search-tree/
 Difficulty: Medium
 Topics: Tree, Depth-First Search, Binary Search Tree, Binary Tree, Divide and Conquer
 
+
 Problem:
 --------
 Given the root of a binary search tree, return a balanced binary search tree

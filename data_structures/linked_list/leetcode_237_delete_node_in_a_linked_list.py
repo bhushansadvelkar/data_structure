@@ -5,6 +5,7 @@ https://leetcode.com/problems/delete-node-in-a-linked-list/
 Difficulty: Medium
 Topics: Linked List
 
+
 Problem:
 --------
 Write a function to delete a node in a singly-linked list. You will not be given

@@ -5,6 +5,7 @@ https://leetcode.com/problems/maximum-average-subarray-i/
 Difficulty: Easy
 Topics: Array, Sliding Window
 
+
 Problem:
 --------
 You are given an integer array nums consisting of n elements, and an integer k.

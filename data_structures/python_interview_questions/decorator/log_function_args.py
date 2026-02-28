@@ -1,5 +1,6 @@
 """
 2. Write a decorator to log function name and arguments
+
 """
 
 from functools import wraps

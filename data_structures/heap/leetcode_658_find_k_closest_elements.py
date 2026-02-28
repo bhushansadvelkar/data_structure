@@ -5,6 +5,7 @@ https://leetcode.com/problems/find-k-closest-elements/
 Difficulty: Medium
 Topics: Array, Two Pointers, Binary Search, Sliding Window, Sorting, Heap
 
+
 Problem:
 --------
 Given a sorted integer array arr, two integers k and x, return the k closest

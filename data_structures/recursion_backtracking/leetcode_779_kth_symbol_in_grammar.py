@@ -5,6 +5,7 @@ https://leetcode.com/problems/k-th-symbol-in-grammar/
 Difficulty: Medium
 Topics: Math, Bit Manipulation, Recursion
 
+
 Problem:
 --------
 We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.

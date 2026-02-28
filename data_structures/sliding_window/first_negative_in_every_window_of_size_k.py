@@ -4,6 +4,7 @@ First Negative Number in Every Window of Size K
 Difficulty: Medium
 Topics: Array, Sliding Window, Queue
 
+
 Problem:
 --------
 Given an array of integers and an integer k, for each window of size k find

@@ -4,6 +4,7 @@ Next Smaller Element
 Difficulty: Medium
 Topics: Array, Stack, Monotonic Stack
 
+
 Problem:
 --------
 Given an array, for each element find the next smaller element to its right.

@@ -5,6 +5,7 @@ https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string
 Difficulty: Easy
 Topics: Two Pointers, String, String Matching
 
+
 Problem:
 --------
 Given two strings needle and haystack, return the index of the first occurrence

@@ -7,6 +7,7 @@ repeated work.
 
 Same recurrence as recursive solution: either include item n-1 or exclude it.
 Table t[n][cap] = max value using first n items and capacity cap.
+
 """
 
 import os

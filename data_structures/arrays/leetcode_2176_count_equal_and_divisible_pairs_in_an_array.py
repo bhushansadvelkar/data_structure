@@ -3,6 +3,7 @@
 https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array/
 
 Difficulty: Easy
+
 Topics: Array
 
 Problem:

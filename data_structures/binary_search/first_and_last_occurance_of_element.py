@@ -4,6 +4,7 @@ First and Last Occurrence of Element in Sorted Array
 Difficulty: Medium
 Topics: Array, Binary Search
 
+
 Problem:
 --------
 Given a sorted array `nums` and a `target`, return the first and last indices of

@@ -5,6 +5,7 @@ https://leetcode.com/problems/sort-an-array/
 Difficulty: Medium
 Topics: Array, Divide and Conquer, Sorting, Heap, Merge Sort
 
+
 Problem:
 --------
 Given an array of integers nums, sort the array in ascending order and return it.

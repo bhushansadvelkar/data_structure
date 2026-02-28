@@ -2,6 +2,7 @@
 Introduction to Python Decorators
 =================================
 
+
 A decorator is a function that wraps another function to extend its behavior
 without modifying the original function's source code. Python supports
 decorators using the @decorator_name syntax. Internally, decorators use
@@ -40,7 +41,6 @@ def log_decorator(func):
         return result
 
     return wrapper
-
 
 # --- Usage with @ syntax ---
 

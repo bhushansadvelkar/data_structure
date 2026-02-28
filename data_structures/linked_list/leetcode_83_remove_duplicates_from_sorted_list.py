@@ -5,6 +5,7 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 Difficulty: Easy
 Topics: Linked List
 
+
 Problem:
 --------
 Given the head of a sorted linked list, delete all duplicates such that each

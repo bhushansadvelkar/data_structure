@@ -2,6 +2,7 @@
 Introduction to Python Iterators
 ================================
 
+
 An iterator is an object that implements the iterator protocol: __iter__ and __next__.
 - __iter__ returns the iterator itself (or a new iterator for iterables)
 - __next__ returns the next value, or raises StopIteration when done

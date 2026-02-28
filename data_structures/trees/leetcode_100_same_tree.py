@@ -5,6 +5,7 @@ https://leetcode.com/problems/same-tree/
 Difficulty: Easy
 Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
 
+
 Problem:
 --------
 Given the roots of two binary trees p and q, write a function to check if they

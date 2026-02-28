@@ -1,8 +1,9 @@
 """
 0/1 Knapsack Problem (Memoized)
 
-Same problem as knapsack_01.py, solved with memoization using the decorator
-from data_structures/python_interview_questions/decorator/memoization.py.
+Same problem as knapsack_01.py, solved with memoization using an explicit
+2D cache table (manual memoization)
+
 """
 
 import os

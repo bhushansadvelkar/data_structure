@@ -5,6 +5,7 @@ https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/
 Difficulty: Medium
 Topics: Linked List, Two Pointers
 
+
 Problem:
 --------
 You are given the head of a linked list. Delete the middle node, and return the

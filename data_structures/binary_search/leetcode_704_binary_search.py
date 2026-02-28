@@ -5,6 +5,7 @@ https://leetcode.com/problems/binary-search/
 Difficulty: Easy
 Topics: Array, Binary Search
 
+
 Problem:
 --------
 Given an array of integers nums which is sorted in ascending order, and an integer

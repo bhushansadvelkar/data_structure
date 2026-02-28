@@ -4,6 +4,7 @@ Binary Search in Reverse (Descending) Sorted Array
 Difficulty: Easy
 Topics: Array, Binary Search
 
+
 Problem:
 --------
 Given an array sorted in descending order and a target, return True if target

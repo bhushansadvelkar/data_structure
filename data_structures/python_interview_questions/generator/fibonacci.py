@@ -1,5 +1,6 @@
 """
 16. Write generator for Fibonacci sequence
+
 """
 def generate_fibonacci(n):
     """Yield the first n Fibonacci numbers: 0, 1, 1, 2, 3, 5, ..."""

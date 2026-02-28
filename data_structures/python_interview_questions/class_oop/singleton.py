@@ -1,5 +1,6 @@
 """
 Singleton pattern
+
 """
 
 # TODO: implement

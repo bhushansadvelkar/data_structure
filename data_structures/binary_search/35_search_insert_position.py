@@ -5,6 +5,7 @@ https://leetcode.com/problems/search-insert-position/
 Difficulty: Easy
 Topics: Array, Binary Search
 
+
 Problem:
 --------
 Given a sorted array of distinct integers and a target value, return the index
