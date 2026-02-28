@@ -33,10 +33,13 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO)
+I converted the problem into a subset-sum reachability DP. If total sum is S,
+the best split is achieved by finding a reachable subset sum s1 closest to S/2.
+I build a boolean table t[i][j] (using first i items to make sum j), then scan
+from S/2 downward to get the first reachable s1 and compute S - 2*s1.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n * S)
+Space Complexity: O(n * S)
 """
 
 import os

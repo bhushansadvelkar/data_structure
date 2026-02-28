@@ -28,10 +28,12 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO)
+I used tabulation DP where t[i][j] stores how many ways we can form sum j
+using the first i elements. For each element, I either exclude it (t[i-1][j])
+or include it (t[i-1][j-nums[i-1]]) and add both counts.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n * target)
+Space Complexity: O(n * target)
 """
 
 import os

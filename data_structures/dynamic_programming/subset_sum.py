@@ -34,10 +34,12 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO)
+I used classic 0/1 subset-sum DP with a boolean table t[i][j], meaning whether
+sum j can be formed using the first i numbers. Transition is:
+exclude current number, or include it if it does not exceed j.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n * target)
+Space Complexity: O(n * target)
 """
 
 import os

@@ -38,10 +38,12 @@ Follow-up: Could you solve it without reversing the input lists?
 
 How I solved it:
 ----------------
-(TODO)
+I reversed both input lists so I could add from least significant digit, same
+as LeetCode 2. Then I iterated with carry, built the result list, and finally
+reversed the result back to restore most-significant-digit-first order.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n + m)
+Space Complexity: O(1) extra (excluding output list)
 """
 
 import os
@@ -122,7 +124,7 @@ class Solution(object):
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
 
-        return self.reverse_ll(head) 
+        return self.reverse_ll(head)
 
 
 if __name__ == "__main__":

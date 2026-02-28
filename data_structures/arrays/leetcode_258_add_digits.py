@@ -29,10 +29,12 @@ Follow-up: Could you solve it without any loop/recursion in O(1) runtime?
 
 How I solved it:
 ----------------
-(TODO)
+A direct O(1) approach uses the digital-root property for base-10 numbers:
+for num > 0, answer is 1 + ((num - 1) % 9), and for num == 0 answer is 0.
+This avoids loops/recursion and matches the follow-up requirement.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(1)
+Space Complexity: O(1)
 """
 
 import os

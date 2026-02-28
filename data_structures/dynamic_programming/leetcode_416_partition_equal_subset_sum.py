@@ -30,10 +30,12 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO)
+I first computed the total sum. If it is odd, equal partition is impossible.
+Then the problem reduces to checking whether a subset with sum total/2 exists.
+I solved that with boolean subset-sum tabulation DP.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n * target), where target = sum(nums) // 2
+Space Complexity: O(n * target)
 """
 
 import os

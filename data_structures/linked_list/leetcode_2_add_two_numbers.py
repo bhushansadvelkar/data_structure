@@ -34,10 +34,12 @@ Constraints:
 
 How I solved it:
 ----------------
-(TODO)
+I traversed both linked lists simultaneously with a carry. At each step I add
+current digits (or 0 when a list ends), create one node with sum % 10, and
+propagate carry = sum // 10. Continue until both lists and carry are done.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(max(n, m))
+Space Complexity: O(1) extra (excluding output list)
 """
 
 import os
