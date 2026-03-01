@@ -20,12 +20,12 @@ from data_structures.utils.test_utils import run_test
 
 def _kp(wt, val, cap, n, t):
 
-    for i in range(n + 1):
-        for j in range(cap + 1):
+    for i in range(1, n + 1):
+        for j in range(1, cap + 1):
             if wt[i - 1] <= j:
                 t[i][j] = max(
                     val[i - 1] + t[i-1][j - wt[i-1]],
-                    t[n-1][j]
+                    t[i-1][j]
                 )
             else:
                 t[i][j] = t[i-1][j]
