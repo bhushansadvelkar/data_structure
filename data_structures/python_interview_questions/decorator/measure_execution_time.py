@@ -18,7 +18,6 @@ def measure_execution_time(func):
 
     return wrapper
 
-
 @measure_execution_time
 def slow_function():
     time.sleep(0.10)
