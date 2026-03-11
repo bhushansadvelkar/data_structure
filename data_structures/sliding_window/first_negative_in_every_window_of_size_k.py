@@ -41,7 +41,7 @@ indices that fall outside the window; if current element is negative, append
 its index. Append front's value (or 0) to result for each window.
 
 Time Complexity: O(n)
-Space Complexity: O(k)
+Space Complexity: O(k) auxiliary, or O(n - k + 1) if output is counted
 """
 
 import os
@@ -62,7 +62,7 @@ class Solution(object):
         negative. When sliding, pop front if index is outside window; if arr[i]<0
         append i. For each window append arr[front] or 0.
 
-        Time: O(n). Space: O(k).
+        Time: O(n). Space: O(k) auxiliary.
         :type arr: List[int]
         :type k: int
         :rtype: List[int]

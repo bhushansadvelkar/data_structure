@@ -39,8 +39,9 @@ Time Complexity: O(2^n * n log n)
     - 2^n recursive paths (each element: include or exclude).
     - Final deduplication: O(result_size * n log n) for sorting each subset.
 
-Space Complexity: O(n)
-    - Recursion stack depth is n. Result list holds up to 2^n subsets.
+Space Complexity: O(2^n * n) total
+    - Recursion stack depth is O(n), but this implementation also stores all
+      generated subsets and builds a deduplication set of tuples.
 """
 
 from data_structures.utils.test_utils import run_test

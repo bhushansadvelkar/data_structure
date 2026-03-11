@@ -26,7 +26,7 @@ from functools import wraps
 
 
 def log_decorator(func):
-    """Decorator that logs function name, args, kwargs, and return value."""
+    """Decorator that logs function name, args, kwargs, and completion."""
 
     @wraps(func)
     def wrapper(*args, **kwargs):

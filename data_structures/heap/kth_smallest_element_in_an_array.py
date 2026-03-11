@@ -39,8 +39,8 @@ Sort the array and return the element at index k - 1 (kth smallest, 1-indexed).
 Time Complexity: O(n log n)
     - Sorting n elements.
 
-Space Complexity: O(1) or O(n)
-    - O(1) if sort is in-place; O(n) for merge sort / language sort internals.
+Space Complexity: O(n)
+    - This implementation uses sorted(nums), which allocates a new list.
 
 Approach 2: Max-heap of size k (simulated with negated min-heap)
 ---------------------------------------------------------------
@@ -66,7 +66,7 @@ import heapq
 
 
 class Solution(object):
-    """Approach 1: Sort. Time O(n log n), Space O(1) or O(n)."""
+    """Approach 1: Sort. Time O(n log n), Space O(n)."""
 
     def findKthSmallest(self, nums, k):
         """
@@ -75,7 +75,7 @@ class Solution(object):
         :type nums: List[int]
         :type k: int
         :rtype: int
-        Time: O(n log n). Space: O(1) or O(n).
+        Time: O(n log n). Space: O(n).
         """
         nums = sorted(nums)
         return nums[k - 1]

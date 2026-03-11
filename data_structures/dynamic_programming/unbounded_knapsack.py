@@ -34,14 +34,13 @@ Constraints:
 
 How I solved it:
 ----------------
-I used bottom-up DP with a 1D array where dp[c] stores the maximum value for
-capacity c. For each capacity, try every item type that fits and update:
-dp[c] = max(dp[c], values[i] + dp[c - weights[i]]).
-Because this references dp in the same row/capacity pass, the same item can be
-chosen multiple times, which is exactly the unbounded behavior.
+I used plain recursion on item index n and remaining capacity cap. For each
+item type, if it fits, I branch into include vs exclude. The include branch
+keeps n unchanged so the same item type can be chosen again, which gives the
+unbounded behavior. Base case is n == 0 or cap == 0.
 
-Time Complexity: O(n * W)
-Space Complexity: O(W)
+Time Complexity: Exponential in the worst case
+Space Complexity: Recursion stack space
 """
 
 import os

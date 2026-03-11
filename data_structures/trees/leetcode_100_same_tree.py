@@ -41,7 +41,8 @@ same and their right subtrees are the same. If one is None and the other is
 not, or values differ, return False immediately.
 
 Time Complexity: O(n)
-    - Visit each node at most once; n = total nodes in the smaller tree.
+    - Visit each compared node at most once; equivalently O(|p| + |q|) in the
+      worst case when both trees are fully traversed.
 
 Space Complexity: O(h)
     - Recursion stack depth; h = height of the tree. O(log n) for balanced,

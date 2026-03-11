@@ -43,7 +43,9 @@ an anagram — add start index to result. Slide by one: decrement count for
 char leaving, increment for char entering; update match state.
 
 Time Complexity: O(n)
-Space Complexity: O(1) or O(26) for frequency arrays
+Space Complexity: O(1) auxiliary, or O(n) if output is counted
+    - Frequency maps are bounded by the lowercase alphabet, but the result list
+      can contain O(n) starting indices.
 """
 
 import os

@@ -20,7 +20,8 @@ How I solved it:
 Add: create node, link prev/next; handle empty list and index 0 (head). Delete:
 unlink node (update prev.next and next.prev); handle head/tail and empty.
 
-Time Complexity: O(1) for head/tail add/delete; O(n) for index/value ops.
+Time Complexity: O(1) for head add/delete; O(n) for tail/index/value ops in this
+implementation because it keeps only a head pointer.
 Space Complexity: O(1) per operation.
 """
 

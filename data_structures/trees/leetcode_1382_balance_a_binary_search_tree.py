@@ -44,7 +44,8 @@ Time Complexity: O(n)
 
 Space Complexity: O(n)
     - Inorder list stores n values: O(n).
-    - Recursion stack for build: O(log n) for the balanced tree.
+    - Inorder traversal recursion stack is O(h), which can be O(n) for a skewed tree.
+    - Recursion stack for build is O(log n) for the balanced tree produced.
     - Overall: O(n).
 """
 

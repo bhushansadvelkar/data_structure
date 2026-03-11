@@ -31,10 +31,12 @@ Could you do it in O(n) time and O(1) space?
 
 How I solved it:
 ----------------
-(TODO)
+I first copy the list, then reverse the original list in place and compare the
+copied list with the reversed list node by node. If all values match, the list
+is a palindrome.
 
-Time Complexity: O(?)
-Space Complexity: O(?)
+Time Complexity: O(n)
+Space Complexity: O(n)
 """
 
 import os

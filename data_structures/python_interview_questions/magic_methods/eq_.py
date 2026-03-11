@@ -5,15 +5,12 @@ Defines equality (==) for instances. Should return True/False.
 Use NotImplemented when comparing to unknown types so Python can try the other object's __eq__.
 """
 
-
 class Point:
     def __init__(self, x, y):
         self.x = x
-        self.y = y
+        self.y = y 
 
     def __eq__(self, other):
-        if not isinstance(other, Point):
-            return NotImplemented
         return self.x == other.x and self.y == other.y
 
 

@@ -22,12 +22,13 @@ def reassign_mutable(lst):
 
 
 if __name__ == "__main__":
-    # Immutable (int): reassignment doesn't affect caller - behaves like pass-by-value
+    # Immutable (int): rebinding the local parameter does not affect the caller.
     n = 5
     modify_immutable(n)
     print(f"After (immutable): n = {n}")  # still 5
 
-    # Mutable (list): in-place mutation is visible - behaves like pass-by-reference
+    # Mutable (list): in-place mutation is visible to the caller because both
+    # names refer to the same underlying object.
     arr = [1, 2, 3]
     modify_mutable(arr)
     print(f"After (mutable): arr = {arr}")  # [1, 2, 3, 4]

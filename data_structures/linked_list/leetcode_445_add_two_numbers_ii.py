@@ -99,8 +99,8 @@ class Solution(object):
 
     def addTwoNumbers(self, l1, l2):
         """
-        Add two numbers represented as linked lists (digits in reverse order).
-        Return the sum as a linked list in reverse order.
+        Add two numbers represented as linked lists (digits in forward order).
+        Return the sum as a linked list in forward order.
 
         :type l1: ListNode
         :type l2: ListNode

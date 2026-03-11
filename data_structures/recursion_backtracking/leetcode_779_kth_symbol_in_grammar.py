@@ -45,8 +45,8 @@ Constraints:
 Approach: Parent Mapping / Recursion
 ------------------------------------
 - Row n has length 2^(n-1). The first half equals row n-1; the second half is row n-1 with each bit flipped (0↔1).
-- Recurrence: mid = 2^(n-1). If k <= mid → same as kthGrammar(n-1, k). Else → flip of kthGrammar(n-1, k - mid).
-- Base: (1,1)→0. We also need (1,2)→1 because when n=2, k=2 we recurse to (1,2): row 1's single "0" expands to "01", so the 2nd symbol is 1. Row 1 has no formal 2nd index, but the recurrence interprets (1,2) as "2nd symbol of the expansion" = 1.
+- Recurrence: half length = 2^(n-2). If k is in the first half, answer is kthGrammar(n-1, k). Else answer is the flipped value of kthGrammar(n-1, k - half_length).
+- Base: (1,1) → 0.
 
 Time Complexity: O(n)
     - At most n recursive levels (n → n-1 → ... → 1), O(1) work per level.

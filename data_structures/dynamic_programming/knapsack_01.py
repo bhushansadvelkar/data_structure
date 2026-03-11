@@ -43,8 +43,8 @@ I used plain recursion on index n and remaining capacity cap. For each item,
 if it fits, I branch into include vs exclude and take max value. If it does
 not fit, I skip it. Base case is n == 0 or cap == 0.
 
-Time Complexity: O(n * W)
-Space Complexity: O(n * W) or O(W) with 1D DP
+Time Complexity: O(2^n) in the worst case
+Space Complexity: O(n) recursion stack
 """
 
 import os

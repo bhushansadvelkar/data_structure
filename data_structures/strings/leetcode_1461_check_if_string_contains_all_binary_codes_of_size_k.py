@@ -43,7 +43,8 @@ Sliding window: collect all length-k substrings of s into a set; return True if
 the set size equals 2**k (all 2^k binary codes present).
 
 Time Complexity: O(n * k)
-Space Complexity: O(2^k)
+Space Complexity: O(2^k * k) in the worst case
+    - The set can hold up to 2^k distinct strings, each of length k.
 """
 
 import os

@@ -35,12 +35,12 @@ Could you solve the problem in linear time and in O(1) space?
 
 Approach:
 ---------
-Boyer-Moore voting: maintain a candidate and count. Traverse; if count is 0
-set candidate to current; if current == candidate increment count else
-decrement. Majority always wins, so final candidate is the answer.
+Count element frequencies with Counter, then return the one whose count is
+greater than floor(n / 2).
 
 Time Complexity: O(n)
-Space Complexity: O(1)
+Space Complexity: O(u)
+    - u = number of distinct values, O(n) in the worst case.
 """
 
 import os

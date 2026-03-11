@@ -38,9 +38,9 @@ Approach:
 Use a min-heap keyed by (distance to x, value). Push all elements, then pop
 k times to get the k closest. Sort the result for ascending order as required.
 
-Time Complexity: O(n log n)
-    - n = len(arr). Building heap from n elements: O(n). k pops: O(k log n).
-      Final sort of k elements: O(k log k). Dominant term O(n log n) for heap build.
+Time Complexity: O(n + k log n + k log k)
+    - n = len(arr). Heapify n elements: O(n). k pops: O(k log n).
+      Final sort of k elements: O(k log k).
 
 Space Complexity: O(n)
     - Heap stores n (distance, value) pairs.
@@ -63,7 +63,7 @@ class Solution:
         Code: Min-heap keyed by (distance to x, value). Heapify all, pop k
         times, sort result for ascending order.
 
-        Time: O(n log n). Space: O(n).
+        Time: O(n + k log n + k log k). Space: O(n).
         :type arr: List[int]
         :type k: int
         :type x: int

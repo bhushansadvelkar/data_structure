@@ -1,11 +1,11 @@
 """
-Unbounded Knapsack Problem - Top-Down (Memoized Recursion)
+Unbounded Knapsack Problem - Bottom-Up Tabulation
 
-Top-down = recursion with memoization. Start from full problem (capacity W,
-all n items) and recurse down to base cases; cache results to avoid repeated work.
+Bottom-up tabulation: fill a DP table iteratively where t[i][cap] stores the
+maximum value using the first i item types and capacity cap.
 
-Same recurrence as plain recursion: include item (keep n to allow repeat) or
-exclude. Table t[n][cap] = max value using first n item types and capacity cap.
+Same recurrence as plain recursion: include item (stay on same row to allow
+repeat) or exclude it. The table is filled row by row until t[n][capacity].
 """
 
 import os
@@ -32,7 +32,7 @@ def _kp(wt, val, cap, n, t):
 
 def unbounded_knapsack(weights, values, capacity):
     """
-    Return maximum value (unbounded knapsack) using top-down memoized DP.
+    Return maximum value (unbounded knapsack) using bottom-up DP tabulation.
 
     :type weights: List[int]
     :type values: List[int]

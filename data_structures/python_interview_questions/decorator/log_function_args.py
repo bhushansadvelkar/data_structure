@@ -16,7 +16,6 @@ def log_args(func):
 
     return wrapper
 
-
 @log_args
 def add(a, b):
     return a + b

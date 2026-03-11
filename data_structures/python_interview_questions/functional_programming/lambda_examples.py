@@ -7,7 +7,7 @@ Common with sort, map, filter.
 
 
 if __name__ == "__main__":
-    # Sort by custom key
+    # Sort by custom key. Note: sorted(...) returns a new list.
     pairs = [(1, "one"), (3, "three"), (2, "two")]
     sorted(pairs, key=lambda x:x[1])
     print(pairs)  # by string: [(1,'one'), (3,'three'), (2,'two')]

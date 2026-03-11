@@ -39,11 +39,11 @@ Follow-up: O(m + n) time, O(1) memory.
 
 How I solved it:
 ---------------
-Two pointers: traverse listA then listB with pa, listB then listA with pb; when
-pa == pb (same node or both None) that is the intersection or no intersection.
+Store all nodes from listA in a dictionary, then traverse listB and return the
+first node that already exists in the dictionary.
 
 Time Complexity: O(m + n)
-Space Complexity: O(1)
+Space Complexity: O(m)
 """
 
 import os

@@ -38,10 +38,9 @@ Time Complexity: O(n * m)
     - n = len(haystack), m = len(needle). We try at most (n - m + 1) starting
       indices; each comparison checks up to m characters. Worst case O(n * m).
 
-Space Complexity: O(1)
-    - Only a few variables (index i, no extra data structures). Using a slice
-      for comparison uses O(m) temporary space per check; still O(1) extra
-      in the usual analysis.
+Space Complexity: O(m)
+    - In this Python implementation, haystack[i : i + len(needle)] creates a
+      temporary substring of length m = len(needle).
 """
 
 import os

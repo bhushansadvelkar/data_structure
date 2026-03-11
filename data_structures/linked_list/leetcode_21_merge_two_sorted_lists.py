@@ -34,11 +34,11 @@ Constraints:
 
 How I solved it:
 ----------------
-Use a dummy head; iterate over both lists, append the smaller node to the tail,
-then advance that list. Append remaining nodes. Return dummy.next.
+Recursive merge: compare the current heads, keep the smaller node, and recurse
+on the rest. Base case: if either list is empty, return the other list.
 
 Time Complexity: O(m + n)
-Space Complexity: O(1)
+Space Complexity: O(m + n) recursion stack
 """
 
 import os

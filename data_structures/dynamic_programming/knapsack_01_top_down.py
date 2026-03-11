@@ -1,12 +1,11 @@
 """
-0/1 Knapsack Problem - Top-Down Approach
+0/1 Knapsack Problem - Bottom-Up Tabulation
 
-Top-down = recursion with memoization. Start from the full problem (n items,
-capacity W) and recurse down to base cases; cache results in a table to avoid
-repeated work.
+Bottom-up tabulation: build a DP table iteratively where t[i][cap] stores the
+maximum value using the first i items and capacity cap.
 
-Same recurrence as recursive solution: either include item n-1 or exclude it.
-Table t[n][cap] = max value using first n items and capacity cap.
+Same recurrence as recursive solution: either include item i-1 or exclude it.
+The table is filled row by row until t[n][capacity].
 
 """
 
@@ -35,7 +34,7 @@ def _kp(wt, val, cap, n, t):
 
 def knapsack_01(weights, values, capacity):
     """
-    Return maximum value (0/1 knapsack) using top-down DP.
+    Return maximum value (0/1 knapsack) using bottom-up DP tabulation.
 
     :type weights: List[int]
     :type values: List[int]

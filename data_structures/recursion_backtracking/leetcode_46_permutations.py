@@ -33,14 +33,14 @@ Constraints:
 
 Approach:
 ---------
-Backtracking: build permutations by choosing each unused element as the next
-position, recursively generating the rest, then undoing the choice. When the
-current path has length n, append a copy to the result.
+Planned approach: backtracking. Build permutations by choosing each unused
+element as the next position, recursively generating the rest, then undoing the
+choice. When the current path has length n, append a copy to the result.
 
-Time Complexity: O(n! × n)
+Planned Time Complexity: O(n! × n)
     - There are n! permutations; each base case copies a path of length n.
 
-Space Complexity: O(n)
+Planned Space Complexity: O(n)
     - Recursion depth and current path size O(n). Output is O(n! × n) but not
       counted as extra space per usual convention.
 """

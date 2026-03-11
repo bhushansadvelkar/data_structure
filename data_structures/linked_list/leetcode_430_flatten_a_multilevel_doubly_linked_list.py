@@ -35,11 +35,12 @@ Constraints:
 
 How I solved it:
 ----------------
-DFS: at each node, if it has a child, flatten the child list, connect current to
-child head and child tail to current.next, then set child to None. Recurse.
+Planned approach: DFS. At each node, if it has a child, flatten the child list,
+connect current to child head and child tail to current.next, then set child to
+None. Recurse.
 
-Time Complexity: O(n)
-Space Complexity: O(depth) for recursion stack
+Planned Time Complexity: O(n)
+Planned Space Complexity: O(depth) for recursion stack
 """
 
 import os

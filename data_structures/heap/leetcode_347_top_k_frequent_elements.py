@@ -35,9 +35,10 @@ Count frequency of each element, then use a max-heap (negated counts in a
 min-heap). Build heap from unique elements keyed by negative frequency;
 pop k times to get the k most frequent elements.
 
-Time Complexity: O(n + u log u)
-    - n = len(nums), u = number of unique elements. Counting: O(n). Building
-      heap from u entries: O(u). k pops: O(k log u); typically k ≤ u, so O(u log u).
+Time Complexity: O(n * u + u + k log u)
+    - n = len(nums), u = number of unique elements. This implementation uses
+      nums.count(i) for every unique value, so counting costs O(n * u), which
+      is O(n^2) in the worst case. Heapify is O(u), and k pops cost O(k log u).
 
 Space Complexity: O(u)
     - Storing unique keys and heap of size u. In worst case u = O(n).

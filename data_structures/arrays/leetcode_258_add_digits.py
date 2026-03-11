@@ -30,12 +30,12 @@ Follow-up: Could you solve it without any loop/recursion in O(1) runtime?
 
 How I solved it:
 ----------------
-A direct O(1) approach uses the digital-root property for base-10 numbers:
+A direct O(1) approach would use the digital-root property for base-10 numbers:
 for num > 0, answer is 1 + ((num - 1) % 9), and for num == 0 answer is 0.
-This avoids loops/recursion and matches the follow-up requirement.
+This matches the follow-up requirement, but the function is still unimplemented.
 
-Time Complexity: O(1)
-Space Complexity: O(1)
+Planned Time Complexity: O(1)
+Planned Space Complexity: O(1)
 """
 
 import os
