@@ -6,6 +6,12 @@ maximum value using the first i item types and capacity cap.
 
 Same recurrence as plain recursion: include item (stay on same row to allow
 repeat) or exclude it. The table is filled row by row until t[n][capacity].
+
+Time Complexity: O(n * W)
+    - n = number of item types, W = capacity.
+
+Space Complexity: O(n * W)
+    - DP table t has (n + 1) * (W + 1) entries.
 """
 
 import os

@@ -7,6 +7,12 @@ maximum value using the first i items and capacity cap.
 Same recurrence as recursive solution: either include item i-1 or exclude it.
 The table is filled row by row until t[n][capacity].
 
+Time Complexity: O(n * W)
+    - n = number of items, W = capacity. Each table cell is filled once.
+
+Space Complexity: O(n * W)
+    - DP table t has (n + 1) * (W + 1) entries.
+
 """
 
 import os

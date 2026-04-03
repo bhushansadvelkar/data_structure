@@ -40,8 +40,8 @@ Sort the array and return the element at index len(nums) - k (kth largest).
 Time Complexity: O(n log n)
     - Sorting n elements.
 
-Space Complexity: O(1) or O(n)
-    - O(1) if sort is in-place; O(n) for merge sort / language sort internals.
+Space Complexity: O(n) worst-case auxiliary for Python list.sort (Timsort);
+    the sort is in-place for the list object but may use O(n) extra memory.
 
 Approach 2: Min-heap of size k
 ------------------------------
@@ -66,7 +66,7 @@ import heapq
 
 
 class Solution(object):
-    """Approach 1: Sort. Time O(n log n), Space O(1) or O(n)."""
+    """Approach 1: Sort. Time O(n log n), Space O(n) worst-case auxiliary (Timsort)."""
 
     def findKthLargest(self, nums, k):
         """
@@ -75,7 +75,7 @@ class Solution(object):
         :type nums: List[int]
         :type k: int
         :rtype: int
-        Time: O(n log n). Space: O(1) or O(n).
+        Time: O(n log n). Space: O(n) worst-case auxiliary (Timsort).
         """
         nums.sort()
         return nums[-k]

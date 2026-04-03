@@ -2,7 +2,10 @@
 __eq__ magic method
 
 Defines equality (==) for instances. Should return True/False.
-Use NotImplemented when comparing to unknown types so Python can try the other object's __eq__.
+
+This implementation compares another Point by reading other.x and other.y.
+Comparing to a non-Point (for example a tuple) will raise AttributeError unless
+you add a type check and return NotImplemented for unknown types.
 """
 
 class Point:
@@ -21,4 +24,4 @@ if __name__ == "__main__":
 
     print(p1 == p2)   # True
     print(p1 == p3)   # False
-    print(p1 == (1, 2))  # False (NotImplemented delegates, tuple has no Point handling)
+    # print(p1 == (1, 2))  # AttributeError: 'tuple' object has no attribute 'x'

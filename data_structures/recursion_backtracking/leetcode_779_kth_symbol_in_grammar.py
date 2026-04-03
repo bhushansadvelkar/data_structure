@@ -42,11 +42,14 @@ Constraints:
 - 1 <= n <= 30
 - 1 <= k <= 2^(n - 1)
 
-Approach: Parent Mapping / Recursion
-------------------------------------
-- Row n has length 2^(n-1). The first half equals row n-1; the second half is row n-1 with each bit flipped (0↔1).
-- Recurrence: half length = 2^(n-2). If k is in the first half, answer is kthGrammar(n-1, k). Else answer is the flipped value of kthGrammar(n-1, k - half_length).
-- Base: (1,1) → 0.
+Approach: Parent Mapping / Recursion (matches this implementation)
+--------------------------------------------------------------------
+- Row n has length 2^(n-1). The code uses mid = 2^(n-1) as the split between
+  the first and second half of that row (same as the row length for n >= 2).
+- If k <= mid, recurse with kthGrammar(n - 1, k). Otherwise recurse with
+  kthGrammar(n - 1, k - mid) and flip the bit (0↔1).
+- Base cases: (n == 1, k == 1) → 0; (n == 1, k == 2) → 1 (handles the n == 2,
+  k == 2 case together with the mid split above).
 
 Time Complexity: O(n)
     - At most n recursive levels (n → n-1 → ... → 1), O(1) work per level.

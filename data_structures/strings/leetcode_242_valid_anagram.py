@@ -35,12 +35,12 @@ What if the inputs contain Unicode characters? How would you adapt your solution
 
 Approach:
 ---------
-Option 1: Count frequency of each character in s; traverse t and decrement
-counts. If lengths differ, false. If any count goes negative, false. Else true.
-Option 2: Sort both strings and compare (O(n log n) time).
+Implementation: build a Counter for s and t and compare them for equality.
+Both strings are scanned, so character counts must match for an anagram.
 
-Time Complexity: O(n)
-Space Complexity: O(1) or O(26) for count array
+Time Complexity: O(n) where n = len(s) (assuming len(s) == len(t))
+Space Complexity: O(σ) for the counter keys, σ <= 26 for lowercase English
+    (often written as O(1) when the alphabet size is fixed).
 """
 
 import os
