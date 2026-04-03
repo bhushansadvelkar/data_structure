@@ -44,6 +44,8 @@ Time Complexity: O(2^n)
 
 Space Complexity: O(n)
     - Recursion stack depth is n (we recurse n levels: n → n-1 → ... → 1).
+
+Revision: Mermaid + ASCII flowcharts in RECURSION_FLOWCHARTS.md § Tower of Hanoi (same folder).
 """
 
 from data_structures.utils.test_utils import run_test
